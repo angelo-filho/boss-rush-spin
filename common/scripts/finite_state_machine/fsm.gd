@@ -4,7 +4,7 @@ extends Node2D
 @export var current_state: State
 
 func _ready() -> void:
-	prepare.call_deferred()
+	await prepare()
 
 
 func _input(event: InputEvent) -> void:
@@ -21,6 +21,8 @@ func _physics_process(delta: float) -> void:
 
 func prepare():
 	var parent = get_parent()
+	
+	await parent.ready
 	
 	for state in get_children():
 		state.fsm = self
