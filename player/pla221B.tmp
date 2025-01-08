@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://t462ol02sj2b"]
+
+[ext_resource type="Texture2D" uid="uid://bo7pjn3scod8u" path="res://icon.svg" id="1_30dvf"]
+[ext_resource type="Script" path="res://player/scripts/player.gd" id="1_iy8or"]
+[ext_resource type="Script" path="res://common/scripts/finite_state_machine/fsm.gd" id="3_oxkr4"]
+[ext_resource type="Script" path="res://player/scripts/player_idle_state.gd" id="4_yejb2"]
+[ext_resource type="Script" path="res://player/scripts/player_run_state.gd" id="5_y0ugf"]
+[ext_resource type="Script" path="res://player/scripts/player_jump_state.gd" id="6_c6kf3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srdcw"]
+radius = 64.0
+height = 128.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_iy8or")
+speed = 600.0
+jump_velocity = -1200.0
+gravity = 2000
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_30dvf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_srdcw")
+
+[node name="FSM" type="Node2D" parent="." node_paths=PackedStringArray("current_state")]
+script = ExtResource("3_oxkr4")
+current_state = NodePath("Idle")
+
+[node name="Idle" type="Node2D" parent="FSM"]
+script = ExtResource("4_yejb2")
+
+[node name="Run" type="Node2D" parent="FSM"]
+script = ExtResource("5_y0ugf")
+
+[node name="Jump" type="Node2D" parent="FSM"]
+script = ExtResource("6_c6kf3")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
