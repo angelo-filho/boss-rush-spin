@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://t462ol02sj2b"]
+[gd_scene load_steps=9 format=3 uid="uid://t462ol02sj2b"]
 
 [ext_resource type="Texture2D" uid="uid://bo7pjn3scod8u" path="res://icon.svg" id="1_30dvf"]
 [ext_resource type="Script" path="res://player/scripts/player.gd" id="1_iy8or"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://player/scripts/player_idle_state.gd" id="4_yejb2"]
 [ext_resource type="Script" path="res://player/scripts/player_run_state.gd" id="5_y0ugf"]
 [ext_resource type="Script" path="res://player/scripts/player_jump_state.gd" id="6_c6kf3"]
+[ext_resource type="Script" path="res://common/scripts/health_component/health_component.gd" id="7_mmvev"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srdcw"]
 radius = 64.0
@@ -40,3 +41,7 @@ script = ExtResource("6_c6kf3")
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("7_mmvev")
+max_health = 10.0
