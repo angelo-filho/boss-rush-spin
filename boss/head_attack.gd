@@ -8,7 +8,6 @@ func enter(message: Dictionary = {}) -> void:
 func tick(delta: float) -> void:
 	time_state -= delta
 	if time_state <= 0.0:
-		print("change state: Idle")
 		time_state = 4.0
-		fsm.change_state($"../HeadIdle")
+		fsm.change_state($"../Idle")
 	pass
