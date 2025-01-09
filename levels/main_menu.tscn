@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://w5jwgpxhxbgw"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_5nvft"]
+[ext_resource type="Texture2D" uid="uid://dx3sj6syqg26a" path="res://trash/temporaryMenu.png" id="2_vltbw"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5nvft")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(917, 521.5)
+scale = Vector2(0.564062, 0.6125)
+texture = ExtResource("2_vltbw")
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -681.0
+offset_top = -41.0
+offset_right = -124.0
+offset_bottom = 114.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 60
+
+[node name="OptionsButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 1239.0
+offset_top = 685.0
+offset_right = 1788.0
+offset_bottom = 850.0
+theme_type_variation = &"FlatButton"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 2
+offset_left = 1239.0
+offset_top = 864.0
+offset_right = 1794.0
+offset_bottom = 1041.0
+theme_type_variation = &"FlatButton"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
