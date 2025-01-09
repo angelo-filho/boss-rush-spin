@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcljun4pb6v1c"]
+
+[ext_resource type="Script" path="res://common/scripts/finite_state_machine/fsm.gd" id="1_80g5e"]
+[ext_resource type="Script" path="res://boss/head_idle.gd" id="2_dcjgv"]
+[ext_resource type="Script" path="res://boss/head_attack.gd" id="3_iutsn"]
+[ext_resource type="Script" path="res://boss/arm_right_idle.gd" id="4_dseuh"]
+[ext_resource type="Script" path="res://boss/arm_right_attack.gd" id="5_vi0d8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_csltl"]
+radius = 161.447
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grs8v"]
+radius = 68.0
+height = 246.0
+
+[node name="Allchipone" type="CharacterBody2D"]
+
+[node name="FiniteState" type="Node2D" parent="."]
+script = ExtResource("1_80g5e")
+
+[node name="HeadIdle" type="Node2D" parent="FiniteState"]
+script = ExtResource("2_dcjgv")
+
+[node name="HeadAttack" type="Node2D" parent="FiniteState"]
+script = ExtResource("3_iutsn")
+
+[node name="ArmRightIdle" type="Node2D" parent="FiniteState"]
+script = ExtResource("4_dseuh")
+
+[node name="ArmRightAttack" type="Node2D" parent="FiniteState"]
+script = ExtResource("5_vi0d8")
+
+[node name="ArmLeftIdle" type="Node2D" parent="FiniteState"]
+
+[node name="ArmLeftAttack" type="Node2D" parent="FiniteState"]
+
+[node name="HeadCollider" type="CollisionShape2D" parent="."]
+position = Vector2(640, 180)
+shape = SubResource("CircleShape2D_csltl")
+
+[node name="LeftArmCollider" type="CollisionShape2D" parent="."]
+position = Vector2(948, 394)
+rotation = -0.533243
+shape = SubResource("CapsuleShape2D_grs8v")
+
+[node name="RightArmCollider" type="CollisionShape2D" parent="."]
+position = Vector2(279, 408)
+rotation = 0.556811
+shape = SubResource("CapsuleShape2D_grs8v")

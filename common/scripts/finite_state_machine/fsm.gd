@@ -4,6 +4,7 @@ extends Node2D
 @export var current_state: State
 
 func _ready() -> void:
+	current_state = get_node("HeadIdle")
 	prepare.call_deferred()
 
 
