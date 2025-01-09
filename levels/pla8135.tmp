@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://nbkvxn2q07p3"]
+
+[ext_resource type="PackedScene" uid="uid://t462ol02sj2b" path="res://player/player.tscn" id="1_mox71"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0josx"]
+
+[node name="PlayerTest" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_mox71")]
+position = Vector2(930, 448)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 956)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_0josx")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(4, 1, 1922, 3, 1924, 124, -19, 129, -26, -1)
