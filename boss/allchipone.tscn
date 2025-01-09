@@ -33,15 +33,15 @@ script = ExtResource("5_vi0d8")
 script = ExtResource("5_ybfgk")
 
 [node name="HeadCollider" type="CollisionShape2D" parent="."]
-position = Vector2(640, 180)
+position = Vector2(998, 248)
 shape = SubResource("CircleShape2D_csltl")
 
 [node name="LeftArmCollider" type="CollisionShape2D" parent="."]
-position = Vector2(948, 394)
+position = Vector2(1306, 462)
 rotation = -0.533243
 shape = SubResource("CapsuleShape2D_grs8v")
 
 [node name="RightArmCollider" type="CollisionShape2D" parent="."]
-position = Vector2(279, 408)
+position = Vector2(637, 476)
 rotation = 0.556811
 shape = SubResource("CapsuleShape2D_grs8v")

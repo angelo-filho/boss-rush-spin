@@ -2,7 +2,6 @@ class_name State
 extends Node2D
 
 var fsm: FSM
-var core: Node
 
 func enter(message: Dictionary = {}) -> void:
 	pass
