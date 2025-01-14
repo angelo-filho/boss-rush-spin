@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WheelPiece" load_steps=3 format=3 uid="uid://cd51mj4o87fnx"]
+
+[ext_resource type="Texture2D" uid="uid://d2orntju2g21d" path="res://common/art/icons/chipone_icon.png" id="1_47f1r"]
+[ext_resource type="Script" path="res://wheel/wheel_piece.gd" id="2_18ivx"]
+
+[resource]
+script = ExtResource("2_18ivx")
+name = "Chipone Left Arm"
+icon = ExtResource("1_47f1r")

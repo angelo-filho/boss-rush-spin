@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WheelPiece" load_steps=3 format=3 uid="uid://bpgp67p7vcbmg"]
+
+[ext_resource type="Script" path="res://wheel/wheel_piece.gd" id="1_hql68"]
+[ext_resource type="Texture2D" uid="uid://vo1mi550iffq" path="res://common/art/icons/tiger_icon.png" id="1_j02ec"]
+
+[resource]
+script = ExtResource("1_hql68")
+name = "Tiger Left Arm"
+icon = ExtResource("1_j02ec")

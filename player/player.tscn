@@ -1,16 +1,108 @@
-[gd_scene load_steps=9 format=3 uid="uid://t462ol02sj2b"]
+[gd_scene load_steps=22 format=3 uid="uid://t462ol02sj2b"]
 
-[ext_resource type="Texture2D" uid="uid://bo7pjn3scod8u" path="res://icon.svg" id="1_30dvf"]
 [ext_resource type="Script" path="res://player/scripts/player.gd" id="1_iy8or"]
+[ext_resource type="Texture2D" uid="uid://c57niw48xsnbb" path="res://player/art/Sprite_ Sheldon_Run.png" id="2_xhuhm"]
 [ext_resource type="Script" path="res://player/scripts/player_fsm.gd" id="3_g6gy0"]
 [ext_resource type="Script" path="res://player/scripts/player_idle_state.gd" id="4_yejb2"]
 [ext_resource type="Script" path="res://player/scripts/player_run_state.gd" id="5_y0ugf"]
 [ext_resource type="Script" path="res://player/scripts/player_jump_state.gd" id="6_c6kf3"]
 [ext_resource type="Script" path="res://common/scripts/health_component/health_component.gd" id="7_mmvev"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfukp"]
+atlas = ExtResource("2_xhuhm")
+region = Rect2(0, 0, 175, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xh3f"]
+atlas = ExtResource("2_xhuhm")
+region = Rect2(525, 0, 175, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf75l"]
+atlas = ExtResource("2_xhuhm")
+region = Rect2(0, 175, 175, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rolg"]
+atlas = ExtResource("2_xhuhm")
+region = Rect2(525, 175, 175, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hu1c"]
+atlas = ExtResource("2_xhuhm")
+region = Rect2(0, 350, 175, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7rly"]
+atlas = ExtResource("2_xhuhm")
+region = Rect2(525, 350, 175, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv1qx"]
+atlas = ExtResource("2_xhuhm")
+region = Rect2(0, 525, 175, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_diaks"]
+atlas = ExtResource("2_xhuhm")
+region = Rect2(525, 525, 175, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vj3c"]
+atlas = ExtResource("2_xhuhm")
+region = Rect2(0, 700, 175, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6204n"]
+atlas = ExtResource("2_xhuhm")
+region = Rect2(525, 700, 175, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc5p6"]
+atlas = ExtResource("2_xhuhm")
+region = Rect2(0, 875, 175, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx72w"]
+atlas = ExtResource("2_xhuhm")
+region = Rect2(525, 875, 175, 175)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k8dsi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfukp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xh3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf75l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rolg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hu1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7rly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv1qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_diaks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vj3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6204n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc5p6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx72w")
+}],
+"loop": true,
+"name": &"run",
+"speed": 14.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srdcw"]
-radius = 64.0
-height = 128.0
+radius = 27.0
+height = 140.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_iy8or")
@@ -19,10 +111,14 @@ jump_velocity = -1300.0
 gravity = 2000
 fall_gravity = 4000
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_30dvf")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k8dsi")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.524613
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11)
 shape = SubResource("CapsuleShape2D_srdcw")
 
 [node name="FSM" type="Node2D" parent="." node_paths=PackedStringArray("current_state")]
