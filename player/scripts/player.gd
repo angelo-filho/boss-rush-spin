@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var gravity := 900 
 @export var fall_gravity := 2000 
 
-
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coyote_timer: Timer = $CoyoteTimer
 
 var direction: float
@@ -18,6 +18,11 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	direction = Input.get_axis("move_left", "move_right")
+	
+	if direction < 0:
+		animated_sprite_2d.flip_h = true
+	elif direction > 0:
+		animated_sprite_2d.flip_h = false
 
 	move_and_slide()
 
