@@ -111,13 +111,14 @@ jump_velocity = -1300.0
 gravity = 2000
 fall_gravity = 4000
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k8dsi")
 animation = &"run"
-frame_progress = 0.754662
+autoplay = "run"
+frame_progress = 0.524613
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 12)
+position = Vector2(0, 11)
 shape = SubResource("CapsuleShape2D_srdcw")
 
 [node name="FSM" type="Node2D" parent="." node_paths=PackedStringArray("current_state")]
