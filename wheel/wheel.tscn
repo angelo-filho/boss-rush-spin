@@ -1,0 +1,76 @@
+[gd_scene load_steps=13 format=3 uid="uid://dw3778j8p8khm"]
+
+[ext_resource type="Script" path="res://wheel/wheel.gd" id="1_x7boi"]
+[ext_resource type="Texture2D" uid="uid://bo7pjn3scod8u" path="res://icon.svg" id="2_bsont"]
+[ext_resource type="PackedScene" uid="uid://bjr4m2bb1te48" path="res://wheel/wheel_line.tscn" id="3_0uehv"]
+[ext_resource type="Script" path="res://wheel/wheel_piece.gd" id="3_bqper"]
+[ext_resource type="Texture2D" uid="uid://cqg76ov4d14h1" path="res://roleta.png" id="3_ps650"]
+[ext_resource type="Resource" uid="uid://cd51mj4o87fnx" path="res://common/data/chipone_left_arm.tres" id="4_7a4es"]
+[ext_resource type="Texture2D" uid="uid://bacb7vajmqk8h" path="res://traingle.png" id="4_8ad3j"]
+[ext_resource type="Resource" uid="uid://dm2uw67cvdvec" path="res://common/data/royal_left_arm.tres" id="5_1dwrs"]
+[ext_resource type="AudioStream" uid="uid://ctmnpfk6e42lp" path="res://wheel/wheel_sound.ogg" id="5_ri37l"]
+[ext_resource type="Resource" uid="uid://bpgp67p7vcbmg" path="res://common/data/tiger_left_arm.tres" id="6_s27al"]
+[ext_resource type="PackedScene" uid="uid://dnpod3vwhe040" path="res://wheel/wheel_piece_icon.tscn" id="6_wq6ju"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ykbhi"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("5_ri37l")
+stream_0/weight = 50.0
+
+[node name="Wheel" type="Control" node_paths=PackedStringArray("wheel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1177.0
+offset_bottom = -344.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_x7boi")
+tex = ExtResource("2_bsont")
+pieces = Array[ExtResource("3_bqper")]([ExtResource("4_7a4es"), ExtResource("5_1dwrs"), ExtResource("6_s27al")])
+wheel = NodePath("WheelPicker/WheelBg")
+angle_offset = -90.0
+spin_duration = 5.0
+wheel_line_scene = ExtResource("3_0uehv")
+wheel_piece_icon_scene = ExtResource("6_wq6ju")
+
+[node name="WheelPicker" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 736.0
+offset_bottom = 736.0
+pivot_offset = Vector2(368, 368)
+
+[node name="WheelBg" type="TextureRect" parent="WheelPicker"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(368, 368)
+texture = ExtResource("3_ps650")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="WheelPicker"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = -71.0
+offset_right = 40.0
+offset_bottom = 9.0
+grow_horizontal = 2
+rotation = 3.14159
+pivot_offset = Vector2(40, 80)
+texture = ExtResource("4_8ad3j")
+expand_mode = 1
+
+[node name="WheelSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_ykbhi")
+volume_db = -80.0

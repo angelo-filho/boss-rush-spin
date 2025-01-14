@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WheelPiece" load_steps=3 format=3 uid="uid://dm2uw67cvdvec"]
+
+[ext_resource type="Texture2D" uid="uid://btnpuqv4nr4fq" path="res://common/art/icons/royal_icon.png" id="1_kafkf"]
+[ext_resource type="Script" path="res://wheel/wheel_piece.gd" id="2_ly3le"]
+
+[resource]
+script = ExtResource("2_ly3le")
+name = "Royal Left Arm"
+icon = ExtResource("1_kafkf")

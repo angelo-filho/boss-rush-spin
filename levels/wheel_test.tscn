@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://4c01vv7x7jl5"]
+
+[ext_resource type="PackedScene" uid="uid://dw3778j8p8khm" path="res://wheel/wheel.tscn" id="1_qwuth"]
+
+[node name="WheelTest" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Wheel" parent="CanvasLayer/Control" instance=ExtResource("1_qwuth")]
+layout_mode = 1
+offset_left = 108.0
+offset_top = 242.0
+offset_right = -1069.0
+offset_bottom = -102.0
+scale = Vector2(0.75, 0.75)
+
+[node name="Wheel2" parent="CanvasLayer/Control" instance=ExtResource("1_qwuth")]
+layout_mode = 1
+offset_left = 719.0
+offset_top = 266.0
+offset_right = -458.0
+offset_bottom = -78.0
+scale = Vector2(0.75, 0.75)
+
+[node name="Wheel3" parent="CanvasLayer/Control" instance=ExtResource("1_qwuth")]
+layout_mode = 1
+offset_left = 1332.0
+offset_top = 279.0
+offset_right = 155.0
+offset_bottom = -65.0
+scale = Vector2(0.75, 0.75)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
