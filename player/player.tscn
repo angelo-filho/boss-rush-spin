@@ -112,6 +112,7 @@ gravity = 2000
 fall_gravity = 4000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_k8dsi")
 animation = &"run"
 autoplay = "run"

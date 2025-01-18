@@ -1,9 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://nbkvxn2q07p3"]
+[gd_scene load_steps=7 format=3 uid="uid://nbkvxn2q07p3"]
 
 [ext_resource type="PackedScene" uid="uid://t462ol02sj2b" path="res://player/player.tscn" id="1_mox71"]
 [ext_resource type="Texture2D" uid="uid://f2q8vijxb3fc" path="res://sketch_bossrush.png" id="2_486iq"]
+[ext_resource type="Texture2D" uid="uid://bk4jfdoc0wtcw" path="res://levels/All_Chiponne_Idle.png" id="3_kbwlq"]
+[ext_resource type="Texture2D" uid="uid://bdyu5cgye8e6y" path="res://levels/ideia_sala.png" id="4_o2uyh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0josx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnmae"]
+size = Vector2(286, 20)
 
 [node name="PlayerTest" type="Node2D"]
 
@@ -11,7 +16,7 @@
 position = Vector2(930, 448)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(0, 956)
+position = Vector2(0, 850)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_0josx")
@@ -25,3 +30,28 @@ polygon = PackedVector2Array(4, 1, 1922, 3, 1924, 124, -19, 129, -26, -1)
 visible = false
 position = Vector2(960, 540)
 texture = ExtResource("2_486iq")
+
+[node name="IdeiaSala" type="Sprite2D" parent="."]
+texture = ExtResource("4_o2uyh")
+centered = false
+
+[node name="AllChiponneIdle" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(924, 536)
+texture = ExtResource("3_kbwlq")
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(303, 572)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(150, 14.5)
+shape = SubResource("RectangleShape2D_pnmae")
+one_way_collision = true
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(1321, 572)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(150, 14.5)
+shape = SubResource("RectangleShape2D_pnmae")
+one_way_collision = true
