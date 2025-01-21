@@ -1,15 +1,7 @@
 extends PlayerState
 
 func enter(message: Dictionary = {}) -> void:
-	pass
-
-
-func tick(delta: float) -> void:
-	pass
-
-
-func input_tick(event: InputEvent) -> void:
-	pass
+	core.animation_controller.play_run()
 
 
 func physics_tick(delta: float) -> void:
@@ -23,8 +15,15 @@ func physics_tick(delta: float) -> void:
 		
 		return
 	
+	if Input.is_action_just_pressed("attack"):
+		fsm.change_state($"../Attack")
+		
+		return
+	
+	if Input.is_action_just_pressed("dash"):
+		fsm.change_state($"../Dash")
+		
+		return
+	
+	
 	core.move_horizontaly()
-
-
-func exit() -> void:
-	pass

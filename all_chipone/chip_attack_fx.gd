@@ -2,13 +2,14 @@ extends AttackFX
 
 @export var chip_projectile_scene: PackedScene
 @export var attack_duration: float = 6
+@export var max_time := 0.2
 
 @onready var initial_marker: Marker2D = $InitialMarker
 @onready var final_marker: Marker2D = $FinalMarker
 
+
 var is_attacking := false
 var timer := 0.0
-var max_time := 0.2
 
 func attack():
 	is_attacking = true

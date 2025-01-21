@@ -7,7 +7,7 @@
 radius = 67.18
 
 [node name="ChipProjectile" type="Node2D"]
-position = Vector2(-387, 149)
+scale = Vector2(0.55, 0.55)
 script = ExtResource("1_052ih")
 speed = 900.0
 
