@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxpxw5qirwc1p"]
 
-[ext_resource type="Script" path="res://all_chipone/chip_attack_fx.gd" id="1_1wayy"]
+[ext_resource type="Script" path="res://all_chipone/scripts/chip_attack_fx.gd" id="1_1wayy"]
 [ext_resource type="PackedScene" uid="uid://byjv5ycc1w27g" path="res://all_chipone/chip_projectile.tscn" id="2_7vl0r"]
 
 [node name="ArmLeftAttackFX" type="Node2D"]

@@ -3,11 +3,10 @@ extends State
 var attack_fx: AttackFX
 
 
-func _ready() -> void:
-	attack_fx = get_child(0)
-
-
 func enter(message: Dictionary = {}) -> void:
+	if not attack_fx:
+		attack_fx = get_child(0)
+	
 	attack_fx.ended.connect(_on_attack_fx_ended)
 	attack_fx.attack()
 

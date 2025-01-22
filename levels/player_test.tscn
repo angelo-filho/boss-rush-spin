@@ -26,12 +26,8 @@ position = Vector2(0, 850)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource("WorldBoundaryShape2D_0josx")
 
-[node name="Polygon2D" type="Polygon2D" parent="Ground"]
-position = Vector2(-65.1342, 0)
-scale = Vector2(1.0333, 1)
-polygon = PackedVector2Array(4, 1, 1953.03, -2, 1954.05, 138.174, 1955.03, 274, -16.9908, 268, -26, -1)
-
 [node name="IdeiaSala" type="Sprite2D" parent="."]
+z_index = -2
 texture = ExtResource("2_us7gl")
 centered = false
 
@@ -51,9 +47,6 @@ position = Vector2(150, 14.5)
 shape = SubResource("RectangleShape2D_pnmae")
 one_way_collision = true
 
-[node name="AllChipone" parent="." instance=ExtResource("3_ej4oj")]
-script = null
-
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="Left" type="CollisionShape2D" parent="Walls"]
@@ -63,3 +56,6 @@ shape = SubResource("WorldBoundaryShape2D_yrdai")
 [node name="Right" type="CollisionShape2D" parent="Walls"]
 position = Vector2(1829, 774)
 shape = SubResource("WorldBoundaryShape2D_w114c")
+
+[node name="AllChipone" parent="." instance=ExtResource("3_ej4oj")]
+boss_data = null

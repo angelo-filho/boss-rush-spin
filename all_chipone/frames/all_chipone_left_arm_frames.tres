@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://bfdmmhh2buhn1"]
+
+[ext_resource type="Texture2D" uid="uid://mxi3sexexsdt" path="res://all_chipone/art/AllChip_Left_arm.png" id="1_n5g30"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwv7d"]
+atlas = ExtResource("1_n5g30")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpmb1"]
+atlas = ExtResource("1_n5g30")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouem0"]
+atlas = ExtResource("1_n5g30")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a2u0"]
+atlas = ExtResource("1_n5g30")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogsun"]
+atlas = ExtResource("1_n5g30")
+region = Rect2(1920, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb7ma"]
+atlas = ExtResource("1_n5g30")
+region = Rect2(3840, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wchj"]
+atlas = ExtResource("1_n5g30")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eyyl"]
+atlas = ExtResource("1_n5g30")
+region = Rect2(1920, 2160, 1920, 1080)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwv7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpmb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouem0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5a2u0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogsun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qb7ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wchj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5eyyl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
