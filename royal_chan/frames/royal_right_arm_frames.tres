@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://csbkbgmox1i5c"]
+
+[ext_resource type="Texture2D" uid="uid://cedie2n1jjr00" path="res://royal_chan/arts/royal_right_arm.png" id="1_7bw76"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aelds"]
+atlas = ExtResource("1_7bw76")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gx8q"]
+atlas = ExtResource("1_7bw76")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jkr8"]
+atlas = ExtResource("1_7bw76")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88hji"]
+atlas = ExtResource("1_7bw76")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukt73"]
+atlas = ExtResource("1_7bw76")
+region = Rect2(1920, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp4ed"]
+atlas = ExtResource("1_7bw76")
+region = Rect2(3840, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiskm"]
+atlas = ExtResource("1_7bw76")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfb65"]
+atlas = ExtResource("1_7bw76")
+region = Rect2(1920, 2160, 1920, 1080)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aelds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gx8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jkr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88hji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukt73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vp4ed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiskm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfb65")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]

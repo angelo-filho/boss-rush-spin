@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlas1rah5hkh6"]
+
+[ext_resource type="Script" path="res://royal_chan/scripts/royal_left_arm_attack_fx.gd" id="1_xflay"]
+[ext_resource type="PackedScene" uid="uid://cvnwtxo2a22nv" path="res://royal_chan/diamond_projectile.tscn" id="2_5l6q1"]
+
+[node name="LeftArmAttackFX" type="Node2D"]
+script = ExtResource("1_xflay")
+diamond_scene = ExtResource("2_5l6q1")
+amount = 5
+max_attacks = 2
+
+[node name="LeftSpawnMarker" type="Marker2D" parent="."]
+position = Vector2(206.96, 393)
+
+[node name="RightSpawnMarker" type="Marker2D" parent="."]
+position = Vector2(1713.04, 393)

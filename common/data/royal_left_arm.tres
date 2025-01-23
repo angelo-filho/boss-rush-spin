@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="WheelPiece" load_steps=3 format=3 uid="uid://dm2uw67cvdvec"]
+[gd_resource type="Resource" script_class="WheelPiece" load_steps=5 format=3 uid="uid://dm2uw67cvdvec"]
 
 [ext_resource type="Texture2D" uid="uid://btnpuqv4nr4fq" path="res://common/art/icons/royal_icon.png" id="1_kafkf"]
+[ext_resource type="PackedScene" uid="uid://dlas1rah5hkh6" path="res://royal_chan/fx/royal_left_arm_attack_fx.tscn" id="1_m6rnc"]
 [ext_resource type="Script" path="res://wheel/wheel_piece.gd" id="2_ly3le"]
+[ext_resource type="SpriteFrames" uid="uid://cjan7h2rl6yqy" path="res://royal_chan/frames/royal_left_arm_frames.tres" id="3_7mloi"]
 
 [resource]
 script = ExtResource("2_ly3le")
 name = "Royal Left Arm"
 icon = ExtResource("1_kafkf")
+part_sprites = Array[SpriteFrames]([ExtResource("3_7mloi")])
+fx = ExtResource("1_m6rnc")

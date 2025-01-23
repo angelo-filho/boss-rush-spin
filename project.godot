@@ -25,6 +25,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
 
+[global_group]
+
+player="Group to find player everywhere"
+
 [input]
 
 move_left={
