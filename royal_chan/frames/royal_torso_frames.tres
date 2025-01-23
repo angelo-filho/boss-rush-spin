@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://dacqlv7txegxl"]
+
+[ext_resource type="Texture2D" uid="uid://c7duj00i6y8ws" path="res://royal_chan/arts/royal_torso.png" id="1_5ma3u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enko1"]
+atlas = ExtResource("1_5ma3u")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxfbe"]
+atlas = ExtResource("1_5ma3u")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83yh4"]
+atlas = ExtResource("1_5ma3u")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7y35"]
+atlas = ExtResource("1_5ma3u")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqn2l"]
+atlas = ExtResource("1_5ma3u")
+region = Rect2(1920, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2gsj"]
+atlas = ExtResource("1_5ma3u")
+region = Rect2(3840, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m63jm"]
+atlas = ExtResource("1_5ma3u")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvf5b"]
+atlas = ExtResource("1_5ma3u")
+region = Rect2(1920, 2160, 1920, 1080)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enko1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxfbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83yh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7y35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqn2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2gsj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m63jm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvf5b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]

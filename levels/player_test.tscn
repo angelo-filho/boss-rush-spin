@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://t462ol02sj2b" path="res://player/player.tscn" id="1_mox71"]
 [ext_resource type="Texture2D" uid="uid://cha1lq6my42vd" path="res://all_chipone/art/placeholder_sala.png" id="2_us7gl"]
-[ext_resource type="PackedScene" uid="uid://bytjqr2fjeujd" path="res://all_chipone/all_chipone.tscn" id="3_ej4oj"]
+[ext_resource type="PackedScene" uid="uid://bfaxr7fpoeug3" path="res://boss/boss.tscn" id="3_l3pcv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0josx"]
 
@@ -57,5 +57,4 @@ shape = SubResource("WorldBoundaryShape2D_yrdai")
 position = Vector2(1829, 774)
 shape = SubResource("WorldBoundaryShape2D_w114c")
 
-[node name="AllChipone" parent="." instance=ExtResource("3_ej4oj")]
-boss_data = null
+[node name="BossBase" parent="." instance=ExtResource("3_l3pcv")]

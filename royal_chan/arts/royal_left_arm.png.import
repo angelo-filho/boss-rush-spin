@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f2q8vijxb3fc"
-path="res://.godot/imported/sketch_bossrush.png-2af2db161d57d659101657766f93b936.ctex"
+uid="uid://cokuo6hy6hxtw"
+path="res://.godot/imported/royal_left_arm.png-cab58eb4407f3cc7d95d44dff8fc8bf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sketch_bossrush.png"
-dest_files=["res://.godot/imported/sketch_bossrush.png-2af2db161d57d659101657766f93b936.ctex"]
+source_file="res://royal_chan/arts/royal_left_arm.png"
+dest_files=["res://.godot/imported/royal_left_arm.png-cab58eb4407f3cc7d95d44dff8fc8bf0.ctex"]
 
 [params]
 

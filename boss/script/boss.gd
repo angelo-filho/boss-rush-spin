@@ -1,7 +1,13 @@
 extends Node2D
 
+@export var boss_data: BossData
+
 @onready var finite_state: FSM = $FiniteState
 @onready var body_parts: Node2D = $BodyParts
+
+
+func _ready() -> void:
+	setup(boss_data)
 
 
 func setup(boss_data: BossData):

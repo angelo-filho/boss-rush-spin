@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo0akhmo0dyh0"]
+
+[ext_resource type="Script" path="res://royal_chan/scripts/royal_right_arm_attack_fx.gd" id="1_s3tit"]
+[ext_resource type="PackedScene" uid="uid://cc7a24h6eqelr" path="res://royal_chan/clover_missile.tscn" id="2_s51gx"]
+
+[node name="RightArmAttackFX" type="Node2D" node_paths=PackedStringArray("places")]
+script = ExtResource("1_s3tit")
+clover_scene = ExtResource("2_s51gx")
+places = [NodePath("DownMaker"), NodePath("LeftMarker"), NodePath("RightMarker")]
+
+[node name="DownMaker" type="Marker2D" parent="."]
+position = Vector2(1713, 393)
+
+[node name="LeftMarker" type="Marker2D" parent="."]
+position = Vector2(1652, 282)
+
+[node name="RightMarker" type="Marker2D" parent="."]
+position = Vector2(1776, 282)

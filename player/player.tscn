@@ -622,7 +622,7 @@ anim_speed_max = 4.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_cfdsv"]
 radius = 34.24
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_iy8or")
 speed = 600.0
 jump_velocity = -1300.0
