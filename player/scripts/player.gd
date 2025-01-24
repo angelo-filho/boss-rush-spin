@@ -19,6 +19,8 @@ var last_direction: float = 1.0
 
 func _ready() -> void:
 	health_component.damage_received.connect(_on_damage_received)
+	health_component.died.connect(func(): get_tree().change_scene_to_file.call_deferred(("res://levels/game_over.tscn")))
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
@@ -26,6 +28,7 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("ui_down") and is_on_floor():
 		position.y += 1
+
 
 func _physics_process(delta: float) -> void:
 	direction = Input.get_axis("move_left", "move_right")

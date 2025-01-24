@@ -1,4 +1,4 @@
-extends State
+extends BossState
 
 @export var possible_states: Array[State]
 
@@ -10,6 +10,9 @@ func _ready() -> void:
 
 
 func tick(delta: float) -> void:
+	if not core.setuped:
+		return
+	
 	time_state -= delta
 	if time_state <= 0.0:
 		var next_state = choose_next_state()
