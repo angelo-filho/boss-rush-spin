@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://t462ol02sj2b"]
+[gd_scene load_steps=76 format=3 uid="uid://t462ol02sj2b"]
 
 [ext_resource type="Script" path="res://player/scripts/player.gd" id="1_iy8or"]
 [ext_resource type="Texture2D" uid="uid://dbd2ugfq5gh8t" path="res://player/art/Idle_Sheldon_Spritesheet.png" id="2_tl8ql"]
@@ -28,7 +28,6 @@
 [ext_resource type="AudioStream" uid="uid://cb5fsssv36oqv" path="res://player/SFXs/RabbitPunch4.wav" id="24_ajnyu"]
 [ext_resource type="AudioStream" uid="uid://cwrh4hbj1bq4g" path="res://player/SFXs/RabbitPunch5.wav" id="25_l3moo"]
 [ext_resource type="AudioStream" uid="uid://cqlq0xeiqog3k" path="res://player/SFXs/RabbitDamage.wav" id="26_hdix8"]
-[ext_resource type="AudioStream" uid="uid://cimn2lnlgxk3k" path="res://player/SFXs/RabbitDash.wav" id="27_y5mvs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srdcw"]
 radius = 27.0
@@ -645,11 +644,6 @@ random_pitch = 1.05
 streams_count = 1
 stream_0/stream = ExtResource("26_hdix8")
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ll8p4"]
-random_pitch = 1.1
-streams_count = 1
-stream_0/stream = ExtResource("27_y5mvs")
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_iy8or")
 speed = 600.0
@@ -750,9 +744,6 @@ bus = &"SFX"
 stream = SubResource("AudioStreamRandomizer_1r5j5")
 pitch_scale = 1.2
 bus = &"SFX"
-
-[node name="Dash" type="AudioStreamPlayer" parent="SFXs"]
-stream = SubResource("AudioStreamRandomizer_ll8p4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

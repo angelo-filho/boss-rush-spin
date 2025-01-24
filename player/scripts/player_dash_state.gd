@@ -7,6 +7,7 @@ extends PlayerState
 
 
 func enter(message: Dictionary = {}) -> void:
+	$"../../SFXs/Dash".play()
 	core.animation_controller.play_dash()
 	ghost_trail_controller.play_ghost_trail.call_deferred(duration)
 	core.velocity = Vector2.RIGHT * core.last_direction * speed

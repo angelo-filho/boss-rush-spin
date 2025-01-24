@@ -12,6 +12,7 @@ func _ready() -> void:
 
 
 func on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int):
+	$"../SFXs/Hit".play()
 	var healt_component = area.get_parent().get_node_or_null("HealthComponent") as HealthComponent
 	
 	if healt_component:

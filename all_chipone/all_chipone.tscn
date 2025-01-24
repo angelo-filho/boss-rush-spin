@@ -12,7 +12,7 @@
 
 [node name="AllChipone" instance=ExtResource("1_fg1eb")]
 
-[node name="HeadAttackFX2" parent="FiniteState/HeadAttack" index="0" instance=ExtResource("2_mlh27")]
+[node name="HeadAttackFX" parent="FiniteState/HeadAttack" index="0" instance=ExtResource("2_mlh27")]
 
 [node name="ArmRightAttackFX" parent="FiniteState/ArmRightAttack" index="0" instance=ExtResource("3_fgrdj")]
 
