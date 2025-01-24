@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://t462ol02sj2b"]
+[gd_scene load_steps=68 format=3 uid="uid://t462ol02sj2b"]
 
 [ext_resource type="Script" path="res://player/scripts/player.gd" id="1_iy8or"]
 [ext_resource type="Texture2D" uid="uid://dbd2ugfq5gh8t" path="res://player/art/Idle_Sheldon_Spritesheet.png" id="2_tl8ql"]
@@ -20,6 +20,8 @@
 [ext_resource type="Script" path="res://player/scripts/player_attack_area.gd" id="16_tnv2t"]
 [ext_resource type="Script" path="res://player/scripts/ghost_trail_controller.gd" id="18_2c18t"]
 [ext_resource type="PackedScene" uid="uid://c00ilg1dj1s7h" path="res://player/ghost_trail.tscn" id="19_qow2e"]
+[ext_resource type="Script" path="res://player/scripts/player_health_ui.gd" id="21_78tay"]
+[ext_resource type="Texture2D" uid="uid://dpvb0wvrhbplu" path="res://hear.png" id="21_s6lbf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srdcw"]
 radius = 27.0
@@ -661,7 +663,8 @@ one_shot = true
 
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("7_mmvev")
-max_health = 10.0
+max_health = 8.0
+invecible_duration = 0.2
 
 [node name="AnimationController" type="Node2D" parent="."]
 script = ExtResource("7_ryn6g")
@@ -694,6 +697,7 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("16_tnv2t")
+damage = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource("CircleShape2D_cfdsv")
@@ -708,3 +712,72 @@ position = Vector2(-65, 0)
 [node name="GhostTrailController" type="Node2D" parent="."]
 script = ExtResource("18_2c18t")
 trail_scene = ExtResource("19_qow2e")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HealthUI" type="HBoxContainer" parent="CanvasLayer/Control"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 1
+anchors_preset = -1
+offset_left = 48.0
+offset_top = 48.0
+theme_override_constants/separation = 24
+script = ExtResource("21_78tay")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HealthUI"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = ExtResource("21_s6lbf")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HealthUI"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = ExtResource("21_s6lbf")
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HealthUI"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = ExtResource("21_s6lbf")
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Control/HealthUI"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = ExtResource("21_s6lbf")
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Control/HealthUI"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = ExtResource("21_s6lbf")
+stretch_mode = 4
+
+[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/Control/HealthUI"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = ExtResource("21_s6lbf")
+stretch_mode = 4
+
+[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/Control/HealthUI"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = ExtResource("21_s6lbf")
+stretch_mode = 4
+
+[node name="TextureRect8" type="TextureRect" parent="CanvasLayer/Control/HealthUI"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = ExtResource("21_s6lbf")
+stretch_mode = 4

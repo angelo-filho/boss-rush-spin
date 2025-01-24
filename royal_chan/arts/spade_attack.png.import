@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csw4t7y4qxi7l"
-path="res://.godot/imported/2spade_attack.png-6a7db61bad78133019ba19d6001bc771.ctex"
+uid="uid://cu8dio4jue2xn"
+path="res://.godot/imported/spade_attack.png-04dd969269d9cc2253bb8adcee098cf6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://royal_chan/arts/2spade_attack.png"
-dest_files=["res://.godot/imported/2spade_attack.png-6a7db61bad78133019ba19d6001bc771.ctex"]
+source_file="res://royal_chan/arts/spade_attack.png"
+dest_files=["res://.godot/imported/spade_attack.png-04dd969269d9cc2253bb8adcee098cf6.ctex"]
 
 [params]
 

@@ -12,9 +12,14 @@ extends CharacterBody2D
 @onready var attack_area: Area2D = $AttackArea
 @onready var right_attack_marker: Marker2D = $RightAttackMarker
 @onready var left_attack_marker: Marker2D = $LeftAttackMarker
+@onready var health_component: HealthComponent = $HealthComponent
 
 var direction: float
 var last_direction: float = 1.0
+
+func _ready() -> void:
+	health_component.damage_received.connect(animation_controller.play_blink)
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):

@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var damage := 20
+
 @onready var hit_particles: GPUParticles2D = $"../HitParticles"
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
@@ -10,6 +12,11 @@ func _ready() -> void:
 
 
 func on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int):
+	var healt_component = area.get_parent().get_node_or_null("HealthComponent") as HealthComponent
+	
+	if healt_component:
+		healt_component.receive_damage(damage)
+	
 	var collision = area.shape_owner_get_owner(area_shape_index)
 	
 	if not collision:
