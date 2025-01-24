@@ -3,6 +3,10 @@ extends State
 @export var possible_states: Array[State]
 
 var time_state: float = 4.0
+var shuffle_bag: ShuffleBag
+
+func _ready() -> void:
+	shuffle_bag = ShuffleBag.new(possible_states)
 
 
 func tick(delta: float) -> void:
@@ -14,4 +18,4 @@ func tick(delta: float) -> void:
 
 
 func choose_next_state():
-	return possible_states.pick_random()
+	return shuffle_bag.get_value()

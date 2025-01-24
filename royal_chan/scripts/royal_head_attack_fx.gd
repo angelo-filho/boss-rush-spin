@@ -3,6 +3,7 @@ extends AttackFX
 @export var positions: Array[Marker2D]
 @export var cards: Array[CardSprite]
 @export var spade_scene: PackedScene
+@export var wait_time := 2.5
 
 @onready var cards_node: Node2D = $Cards
 
@@ -47,7 +48,7 @@ func spawn_spades():
 
 
 func wait_to_attack():
-	await get_tree().create_timer(4.0).timeout
+	await get_tree().create_timer(wait_time).timeout
 	
 	for i in cards.size():
 		var card = cards[i]

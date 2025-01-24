@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var speed := 300.0
 @export var jump_velocity := -800.0
 @export var gravity := 900
-@export var fall_gravity := 2000 
+@export var fall_gravity := 2000
 
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var animation_controller: PlayerAnimationController = $AnimationController
