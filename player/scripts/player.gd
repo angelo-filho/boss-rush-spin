@@ -18,8 +18,7 @@ var direction: float
 var last_direction: float = 1.0
 
 func _ready() -> void:
-	health_component.damage_received.connect(animation_controller.play_blink)
-
+	health_component.damage_received.connect(_on_damage_received)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
@@ -58,3 +57,8 @@ func can_jump() -> bool:
 func jump():
 	coyote_timer.stop()
 	velocity.y = jump_velocity
+
+
+func _on_damage_received():
+	animation_controller.play_blink()
+	$SFXs/Damage.play()

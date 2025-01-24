@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvnwtxo2a22nv"]
+[gd_scene load_steps=11 format=3 uid="uid://cvnwtxo2a22nv"]
 
 [ext_resource type="Script" path="res://royal_chan/scripts/diamond/diamond_projectile.gd" id="1_7gqtr"]
 [ext_resource type="Texture2D" uid="uid://hjvpqadax61j" path="res://royal_chan/arts/diamond_projectile.png" id="2_w6hx2"]
@@ -7,9 +7,15 @@
 [ext_resource type="Script" path="res://royal_chan/scripts/diamond/diamond_appear_state.gd" id="4_ilkff"]
 [ext_resource type="Script" path="res://royal_chan/scripts/diamond/diamond_wait_state.gd" id="5_qjfmi"]
 [ext_resource type="Script" path="res://royal_chan/scripts/diamond/diamond_attack_state.gd" id="6_017nq"]
+[ext_resource type="AudioStream" uid="uid://h8dc6c71gy62" path="res://royal_chan/SFXs/Naipe.wav" id="8_1wkeb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g851f"]
 radius = 27.55
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dvlfy"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("8_1wkeb")
 
 [node name="DiamondProjectile" type="Node2D"]
 scale = Vector2(1.75, 1.75)
@@ -42,3 +48,9 @@ script = ExtResource("5_qjfmi")
 
 [node name="Attack" type="Node2D" parent="FSM"]
 script = ExtResource("6_017nq")
+
+[node name="SFXs" type="Node2D" parent="."]
+
+[node name="Appear" type="AudioStreamPlayer" parent="SFXs"]
+stream = SubResource("AudioStreamRandomizer_dvlfy")
+bus = &"SFX"

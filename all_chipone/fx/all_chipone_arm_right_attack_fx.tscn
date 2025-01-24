@@ -1,7 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://dvdv2x44bl5rg"]
+[gd_scene load_steps=28 format=3 uid="uid://dvdv2x44bl5rg"]
 
 [ext_resource type="Script" path="res://boss/script/animation_attack_fx.gd" id="1_6v7p4"]
+[ext_resource type="Script" path="res://common/scripts/hurt_box/hurt_box.gd" id="2_aj0ji"]
 [ext_resource type="Texture2D" uid="uid://cro2fdo13fyal" path="res://all_chipone/art/attk_All_Chiponne_1.png" id="2_wnl4g"]
+[ext_resource type="AudioStream" uid="uid://340ptflm4nhg" path="res://all_chipone/SFXs/ChipsPoker.wav" id="3_ibll4"]
+[ext_resource type="AudioStream" uid="uid://px36jg6tiw73" path="res://all_chipone/SFXs/ChipsDrag.wav" id="3_tvev5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bixm8"]
 size = Vector2(300, 322)
@@ -68,6 +71,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(587, -269)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SFXs/ChipsHitGround:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SFXs/ChipsDrag:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_68eqf"]
 resource_name = "attack"
@@ -132,6 +159,30 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(587, -269), Vector2(-1188, -269)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SFXs/ChipsHitGround:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SFXs/ChipsDrag:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.65),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ahcca"]
@@ -275,6 +326,7 @@ script = ExtResource("1_6v7p4")
 
 [node name="HurtBox" type="Area2D" parent="."]
 position = Vector2(588, -498)
+script = ExtResource("2_aj0ji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("RectangleShape2D_bixm8")
@@ -290,3 +342,11 @@ libraries = {
 z_index = 1
 position = Vector2(587, -269)
 sprite_frames = SubResource("SpriteFrames_ycqxj")
+
+[node name="SFXs" type="Node2D" parent="."]
+
+[node name="ChipsDrag" type="AudioStreamPlayer" parent="SFXs"]
+stream = ExtResource("3_tvev5")
+
+[node name="ChipsHitGround" type="AudioStreamPlayer" parent="SFXs"]
+stream = ExtResource("3_ibll4")

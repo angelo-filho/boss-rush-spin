@@ -20,6 +20,8 @@ func slide_in_down():
 	
 	tween = create_tween()
 	
+	$"../../SFXs/CardFlip".play()
+	
 	tween.tween_property(self, "modulate:a", base_alpha, 0.3).from(0.0)
 	tween.parallel()
 	tween.tween_property(self, "position", position, 0.3).from(position - Vector2(0, 400.0))
@@ -30,10 +32,6 @@ func exit_anim():
 		tween.kill()
 	
 	tween = create_tween()
-	
-	#tween.tween_property(self, "modulate:a", 0.0, 0.3)
-	#tween.parallel()
-	#tween.tween_property(self, "position", position + Vector2(0, 400.0), 0.3)
 	
 	tween.tween_property(self, "modulate:a", 0.0, 0.3)
 	tween.parallel()

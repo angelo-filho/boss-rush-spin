@@ -4,6 +4,8 @@ func enter(message: Dictionary = {}) -> void:
 	grow_up()
 
 func grow_up():
+	$"../../SFXs/Appear".play()
+	
 	var tween = create_tween()
 	
 	tween.tween_property(core, "global_scale", Vector2(1.2, 1.2), .2).from(Vector2.ZERO)
