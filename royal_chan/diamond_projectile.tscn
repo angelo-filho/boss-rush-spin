@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvnwtxo2a22nv"]
+[gd_scene load_steps=9 format=3 uid="uid://cvnwtxo2a22nv"]
 
 [ext_resource type="Script" path="res://royal_chan/scripts/diamond/diamond_projectile.gd" id="1_7gqtr"]
 [ext_resource type="Texture2D" uid="uid://hjvpqadax61j" path="res://royal_chan/arts/diamond_projectile.png" id="2_w6hx2"]
 [ext_resource type="Script" path="res://royal_chan/scripts/diamond/diamond_fsm.gd" id="3_80bok"]
+[ext_resource type="Script" path="res://common/scripts/hurt_box/one_time_hurt_box.gd" id="3_ndx8w"]
 [ext_resource type="Script" path="res://royal_chan/scripts/diamond/diamond_appear_state.gd" id="4_ilkff"]
 [ext_resource type="Script" path="res://royal_chan/scripts/diamond/diamond_wait_state.gd" id="5_qjfmi"]
 [ext_resource type="Script" path="res://royal_chan/scripts/diamond/diamond_attack_state.gd" id="6_017nq"]
@@ -21,9 +22,12 @@ texture_filter = 1
 scale = Vector2(0.535, 0.535)
 texture = ExtResource("2_w6hx2")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+script = ExtResource("3_ndx8w")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_g851f")
 
 [node name="FSM" type="Node2D" parent="." node_paths=PackedStringArray("current_state")]

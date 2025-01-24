@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr7hk02e1j6gp"]
+[gd_scene load_steps=5 format=3 uid="uid://cr7hk02e1j6gp"]
 
 [ext_resource type="Script" path="res://all_chipone/scripts/fallen_projectile.gd" id="1_8t0re"]
-[ext_resource type="Texture2D" uid="uid://csw4t7y4qxi7l" path="res://royal_chan/arts/2spade_attack.png" id="2_th6xw"]
+[ext_resource type="Texture2D" uid="uid://cu8dio4jue2xn" path="res://royal_chan/arts/spade_attack.png" id="2_6u11f"]
+[ext_resource type="Script" path="res://common/scripts/hurt_box/hurt_box.gd" id="3_bt3lp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0odif"]
 radius = 299.06
@@ -12,9 +13,10 @@ speed = 1000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_th6xw")
+texture = ExtResource("2_6u11f")
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_bt3lp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 19)

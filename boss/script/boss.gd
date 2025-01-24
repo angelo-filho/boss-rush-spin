@@ -6,6 +6,10 @@ extends Node2D
 @onready var body_parts: Node2D = $BodyParts
 
 
+func _ready() -> void:
+	setup(boss_data)
+
+
 func setup(boss_data: BossData):
 	setup_fx(boss_data)
 	setup_body_parts(boss_data)
