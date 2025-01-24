@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://common/scripts/finite_state_machine/fsm.gd" id="1_k4rsj"]
 [ext_resource type="Script" path="res://boss/script/boss.gd" id="1_yay22"]
 [ext_resource type="Script" path="res://boss/script/boss_idle.gd" id="2_dyrbb"]
-[ext_resource type="Resource" uid="uid://driterxd8nc7x" path="res://common/data/chipone_head.tres" id="2_h3swr"]
+[ext_resource type="Resource" uid="uid://bojoqa4lw1dre" path="res://common/data/royal_head_arm.tres" id="2_umwvr"]
 [ext_resource type="Resource" uid="uid://dm2uw67cvdvec" path="res://common/data/royal_left_arm.tres" id="3_fu7mf"]
 [ext_resource type="Script" path="res://boss/script/boss_attack_state.gd" id="3_i27vb"]
 [ext_resource type="Resource" uid="uid://ynkcnl0gbcxa" path="res://common/data/royal_right_arm.tres" id="4_4ccum"]
@@ -13,7 +13,7 @@
 
 [sub_resource type="Resource" id="Resource_ss610"]
 script = ExtResource("5_5vc3k")
-head = ExtResource("2_h3swr")
+head = ExtResource("2_umwvr")
 left_arm = ExtResource("3_fu7mf")
 right_arm = ExtResource("4_4ccum")
 

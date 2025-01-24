@@ -9,7 +9,7 @@ radius = 299.06
 
 [node name="SpadeProjectile" type="Node2D"]
 script = ExtResource("1_8t0re")
-speed = 1000.0
+speed = 1400.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
