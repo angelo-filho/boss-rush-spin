@@ -1,3 +1,4 @@
+class_name Wheel
 extends Control
 
 signal spin_end(piece: WheelPiece)

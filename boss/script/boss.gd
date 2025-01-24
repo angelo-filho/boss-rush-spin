@@ -1,3 +1,4 @@
+class_name Boss
 extends Node2D
 
 @export var boss_data: BossData
@@ -5,12 +6,11 @@ extends Node2D
 @onready var finite_state: FSM = $FiniteState
 @onready var body_parts: Node2D = $BodyParts
 
-
-func _ready() -> void:
-	setup(boss_data)
+var setuped := false
 
 
 func setup(boss_data: BossData):
+	setuped = true
 	setup_fx(boss_data)
 	setup_body_parts(boss_data)
 

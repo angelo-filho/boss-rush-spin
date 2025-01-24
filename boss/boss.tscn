@@ -1,6 +1,5 @@
 [gd_scene load_steps=19 format=3 uid="uid://bfaxr7fpoeug3"]
 
-[ext_resource type="Script" path="res://common/scripts/finite_state_machine/fsm.gd" id="1_k4rsj"]
 [ext_resource type="Script" path="res://boss/script/boss.gd" id="1_yay22"]
 [ext_resource type="Script" path="res://boss/script/boss_idle.gd" id="2_dyrbb"]
 [ext_resource type="Resource" uid="uid://bojoqa4lw1dre" path="res://common/data/royal_head_arm.tres" id="2_umwvr"]
@@ -8,6 +7,7 @@
 [ext_resource type="Script" path="res://boss/script/boss_attack_state.gd" id="3_i27vb"]
 [ext_resource type="Resource" uid="uid://ynkcnl0gbcxa" path="res://common/data/royal_right_arm.tres" id="4_4ccum"]
 [ext_resource type="Script" path="res://boss/boss_data.gd" id="5_5vc3k"]
+[ext_resource type="Script" path="res://boss/script/boss_fsm.gd" id="6_0q7lg"]
 [ext_resource type="Script" path="res://common/scripts/health_component/health_component.gd" id="9_y87it"]
 [ext_resource type="Script" path="res://boss/script/boss_health_bar.gd" id="10_kemdv"]
 
@@ -178,7 +178,7 @@ script = ExtResource("1_yay22")
 boss_data = SubResource("Resource_ss610")
 
 [node name="FiniteState" type="Node2D" parent="." node_paths=PackedStringArray("current_state")]
-script = ExtResource("1_k4rsj")
+script = ExtResource("6_0q7lg")
 current_state = NodePath("Idle")
 
 [node name="Idle" type="Node2D" parent="FiniteState" node_paths=PackedStringArray("possible_states")]

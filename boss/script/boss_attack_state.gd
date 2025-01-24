@@ -1,4 +1,4 @@
-extends State
+extends BossState
 
 var attack_fx: AttackFX
 
