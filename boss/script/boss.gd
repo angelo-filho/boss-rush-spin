@@ -5,14 +5,25 @@ extends Node2D
 
 @onready var finite_state: FSM = $FiniteState
 @onready var body_parts: Node2D = $BodyParts
+@onready var health_component: HealthComponent = $HealthComponent
+@onready var health_bar: ProgressBar = $CanvasLayer/Control/HealthBar
+@onready var hit_box: Area2D = $HitBox
 
 var setuped := false
+
+
+func _ready() -> void:
+	hit_box.process_mode = Node.PROCESS_MODE_DISABLED
+	health_bar.hide()
+	health_component.died.connect(func(): get_tree().change_scene_to_file.call_deferred("res://levels/game_over.tscn"))
 
 
 func setup(boss_data: BossData):
 	setuped = true
 	setup_fx(boss_data)
 	setup_body_parts(boss_data)
+	health_bar.show()
+	hit_box.process_mode = Node.PROCESS_MODE_INHERIT
 
 
 func setup_fx(boss_data: BossData):

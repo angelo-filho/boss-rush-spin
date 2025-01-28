@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x3snw3ep4w3f"
-path="res://.godot/imported/heart_card.png-a862a51e5b68bc00bb5074a6f21da87f.ctex"
+uid="uid://dpvn8rnshrfi2"
+path="res://.godot/imported/Angry_Smoke_Circle_Burst_White_v1_A_spritesheet.png-157d9cb399b65cb5e101686ca2231715.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://royal_chan/arts/heart_card.png"
-dest_files=["res://.godot/imported/heart_card.png-a862a51e5b68bc00bb5074a6f21da87f.ctex"]
+source_file="res://player/Angry_Smoke_Circle_Burst_White_v1_A_spritesheet.png"
+dest_files=["res://.godot/imported/Angry_Smoke_Circle_Burst_White_v1_A_spritesheet.png-157d9cb399b65cb5e101686ca2231715.ctex"]
 
 [params]
 
