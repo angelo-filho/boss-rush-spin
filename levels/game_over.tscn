@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://mb0yfckducaw"]
+[gd_scene load_steps=4 format=3 uid="uid://mb0yfckducaw"]
 
 [ext_resource type="Script" path="res://common/scripts/game_over.gd" id="1_xn8mh"]
+[ext_resource type="FontFile" uid="uid://c4a2tpdbv1u67" path="res://common/fonts/Cardigan Titling Rg.otf" id="2_rthcd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkx70"]
 bg_color = Color(0.04, 0.04, 0.04, 1)
@@ -44,6 +45,7 @@ theme_override_constants/separation = 44
 
 [node name="Title" type="Label" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rthcd")
 theme_override_font_sizes/font_size = 64
 text = "Wheel Of Misfortune"
 horizontal_alignment = 1
@@ -55,11 +57,14 @@ theme_override_constants/separation = 16
 [node name="PlayAgainButton" type="Button" parent="Control/Panel/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_rthcd")
 theme_override_font_sizes/font_size = 32
-text = "Play"
+text = "PLAY"
 
 [node name="QuitButton" type="Button" parent="Control/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rthcd")
 theme_override_font_sizes/font_size = 32
 text = "Quit"
 

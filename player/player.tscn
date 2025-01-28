@@ -28,7 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://cb5fsssv36oqv" path="res://player/SFXs/RabbitPunch4.wav" id="24_ajnyu"]
 [ext_resource type="AudioStream" uid="uid://cwrh4hbj1bq4g" path="res://player/SFXs/RabbitPunch5.wav" id="25_l3moo"]
 [ext_resource type="AudioStream" uid="uid://cqlq0xeiqog3k" path="res://player/SFXs/RabbitDamage.wav" id="26_hdix8"]
-[ext_resource type="AudioStream" uid="uid://cimn2lnlgxk3k" path="res://player/SFXs/RabbitDash.wav" id="27_y5mvs"]
+[ext_resource type="AudioStream" uid="uid://dor2l0gubbbb5" path="res://player/SFXs/player_dash.wav" id="27_u4s5f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srdcw"]
 radius = 27.0
@@ -648,7 +648,7 @@ stream_0/stream = ExtResource("26_hdix8")
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ll8p4"]
 random_pitch = 1.1
 streams_count = 1
-stream_0/stream = ExtResource("27_y5mvs")
+stream_0/stream = ExtResource("27_u4s5f")
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_iy8or")

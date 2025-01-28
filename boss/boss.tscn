@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bfaxr7fpoeug3"]
+[gd_scene load_steps=24 format=3 uid="uid://bfaxr7fpoeug3"]
 
 [ext_resource type="Script" path="res://boss/script/boss.gd" id="1_yay22"]
 [ext_resource type="Script" path="res://boss/script/boss_idle.gd" id="2_dyrbb"]
@@ -8,8 +8,11 @@
 [ext_resource type="Resource" uid="uid://ynkcnl0gbcxa" path="res://common/data/royal_right_arm.tres" id="4_4ccum"]
 [ext_resource type="Script" path="res://boss/boss_data.gd" id="5_5vc3k"]
 [ext_resource type="Script" path="res://boss/script/boss_fsm.gd" id="6_0q7lg"]
+[ext_resource type="PackedScene" uid="uid://bi86aas085c8x" path="res://all_chipone/fx/all_chipone_head_attack_fx.tscn" id="9_s0q5o"]
 [ext_resource type="Script" path="res://common/scripts/health_component/health_component.gd" id="9_y87it"]
 [ext_resource type="Script" path="res://boss/script/boss_health_bar.gd" id="10_kemdv"]
+[ext_resource type="Script" path="res://boss/script/boss_blink_controller.gd" id="11_5kpl5"]
+[ext_resource type="Texture2D" uid="uid://dpvn8rnshrfi2" path="res://player/Angry_Smoke_Circle_Burst_White_v1_A_spritesheet.png" id="12_bquv3"]
 
 [sub_resource type="Resource" id="Resource_ss610"]
 script = ExtResource("5_5vc3k")
@@ -173,11 +176,26 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a6gsx"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 8
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bflpf"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(700, 300, 1)
+gravity = Vector3(0, 0, 0)
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
 [node name="BossBase" type="Node2D"]
 script = ExtResource("1_yay22")
 boss_data = SubResource("Resource_ss610")
 
 [node name="FiniteState" type="Node2D" parent="." node_paths=PackedStringArray("current_state")]
+visible = false
 script = ExtResource("6_0q7lg")
 current_state = NodePath("Idle")
 
@@ -187,6 +205,8 @@ possible_states = [NodePath("../HeadAttack"), NodePath("../ArmRightAttack"), Nod
 
 [node name="HeadAttack" type="Node2D" parent="FiniteState"]
 script = ExtResource("3_i27vb")
+
+[node name="HeadAttackFX" parent="FiniteState/HeadAttack" instance=ExtResource("9_s0q5o")]
 
 [node name="ArmRightAttack" type="Node2D" parent="FiniteState"]
 script = ExtResource("3_i27vb")
@@ -269,3 +289,15 @@ max_value = 1000.0
 value = 500.0
 show_percentage = false
 script = ExtResource("10_kemdv")
+
+[node name="BossBlinkController" type="Node2D" parent="."]
+script = ExtResource("11_5kpl5")
+
+[node name="DeathParticle" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_a6gsx")
+position = Vector2(986, 456)
+scale = Vector2(1.07589, 0.978808)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_bflpf")
+texture = ExtResource("12_bquv3")
+randomness = 1.0

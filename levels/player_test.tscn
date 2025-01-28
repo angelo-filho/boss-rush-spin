@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://nbkvxn2q07p3"]
+[gd_scene load_steps=26 format=3 uid="uid://nbkvxn2q07p3"]
 
 [ext_resource type="PackedScene" uid="uid://t462ol02sj2b" path="res://player/player.tscn" id="1_mox71"]
 [ext_resource type="Texture2D" uid="uid://cha1lq6my42vd" path="res://all_chipone/art/placeholder_sala.png" id="2_us7gl"]
@@ -12,6 +12,9 @@
 [ext_resource type="Resource" uid="uid://cj3vo1o5xhl6x" path="res://common/data/chipone_right_arm.tres" id="8_84gbf"]
 [ext_resource type="Resource" uid="uid://bojoqa4lw1dre" path="res://common/data/royal_head_arm.tres" id="9_i0j6w"]
 [ext_resource type="Resource" uid="uid://ynkcnl0gbcxa" path="res://common/data/royal_right_arm.tres" id="12_82cek"]
+[ext_resource type="Shader" path="res://common/shaders/CTR.gdshader" id="13_4mm7h"]
+[ext_resource type="Shader" path="res://common/shaders/circle_fade.gdshader" id="13_027tu"]
+[ext_resource type="AudioStream" uid="uid://b0g1geq4sfsml" path="res://common/shaders/Drop Point.mp3" id="14_if6an"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0josx"]
 
@@ -23,6 +26,79 @@ normal = Vector2(1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w114c"]
 normal = Vector2(-1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26j2x"]
+shader = ExtResource("13_4mm7h")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.016
+shader_parameter/aberration = 0.00100005
+shader_parameter/brightness = 1.0
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.121
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.43
+shader_parameter/vignette_opacity = 0.449
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eyk4x"]
+shader = ExtResource("13_027tu")
+shader_parameter/circle_size = 1.1
+shader_parameter/feather = 0.05
+shader_parameter/circle_position = Vector2(0.48, 0.43)
+shader_parameter/screen_width = 1920.0
+shader_parameter/screen_height = 1080.0
+
+[sub_resource type="Animation" id="Animation_ou4ur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.1]
+}
+
+[sub_resource type="Animation" id="Animation_4dlqi"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.9, 1.2, 1.43333),
+"transitions": PackedFloat32Array(1, -2, 1, 1, 1),
+"update": 0,
+"values": [1.1, 0.19, 0.19, 0.355, -0.055]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o2wld"]
+_data = {
+"RESET": SubResource("Animation_ou4ur"),
+"fade_out": SubResource("Animation_4dlqi")
+}
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_alvox"]
+stream_count = 1
+stream_0 = ExtResource("14_if6an")
 
 [node name="PlayerTest" type="Node2D"]
 
@@ -96,3 +172,59 @@ offset_bottom = 165.0
 scale = Vector2(0.75, 0.75)
 pieces = Array[ExtResource("5_r6xhk")]([ExtResource("8_84gbf"), ExtResource("12_82cek")])
 spin_duration = 6.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CTR" type="ColorRect" parent="CanvasLayer/Control"]
+z_index = 15
+material = SubResource("ShaderMaterial_26j2x")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.997673, 1)
+
+[node name="Control2" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Circle" type="ColorRect" parent="CanvasLayer/Control2"]
+z_index = 15
+material = SubResource("ShaderMaterial_eyk4x")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.997673, 1)
+color = Color(0.00464652, 0.0518423, 0.0464854, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control2/Circle"]
+libraries = {
+"": SubResource("AnimationLibrary_o2wld")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_alvox")
+volume_db = -2.405
+autoplay = true
+bus = &"Music"
