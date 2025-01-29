@@ -9,13 +9,14 @@ extends Node2D
 @onready var health_bar: ProgressBar = $CanvasLayer/Control/HealthBar
 @onready var hit_box: Area2D = $HitBox
 
+
 var setuped := false
 
 
 func _ready() -> void:
 	hit_box.process_mode = Node.PROCESS_MODE_DISABLED
 	health_bar.hide()
-	health_component.died.connect(func(): get_tree().change_scene_to_file.call_deferred("res://levels/game_over.tscn"))
+	health_component.died.connect(_on_died)
 
 
 func setup(boss_data: BossData):
@@ -37,3 +38,12 @@ func setup_body_parts(boss_data: BossData):
 	body_parts.get_node("Torso").sprite_frames = boss_data.head.part_sprites[1]
 	body_parts.get_node("RightArm").sprite_frames = boss_data.right_arm.part_sprites[0]
 	body_parts.get_node("LeftArm").sprite_frames = boss_data.left_arm.part_sprites[0]
+
+
+func _on_died():
+	EventBus.boss_died.emit()
+	$DeathParticle.emitting = true
+	
+	await get_tree().create_timer(3.0).timeout
+	
+	get_tree().change_scene_to_file.call_deferred("res://levels/game_over.tscn")

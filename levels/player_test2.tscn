@@ -1,21 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://nbkvxn2q07p3"]
+[gd_scene load_steps=17 format=3 uid="uid://daw2vpqouubd0"]
 
-[ext_resource type="Script" path="res://common/scripts/player_test/player_test.gd" id="1_8ls7f"]
-[ext_resource type="PackedScene" uid="uid://t462ol02sj2b" path="res://player/player.tscn" id="1_mox71"]
-[ext_resource type="Texture2D" uid="uid://cha1lq6my42vd" path="res://all_chipone/art/placeholder_sala.png" id="2_us7gl"]
-[ext_resource type="PackedScene" uid="uid://bfaxr7fpoeug3" path="res://boss/boss.tscn" id="3_l3pcv"]
-[ext_resource type="PackedScene" uid="uid://dw3778j8p8khm" path="res://wheel/wheel.tscn" id="4_4yd00"]
-[ext_resource type="Script" path="res://wheel/wheel_controller.gd" id="4_8q2er"]
-[ext_resource type="Script" path="res://wheel/wheel_piece.gd" id="5_r6xhk"]
-[ext_resource type="Resource" uid="uid://cd51mj4o87fnx" path="res://common/data/chipone_left_arm.tres" id="6_b6v0p"]
-[ext_resource type="Resource" uid="uid://dm2uw67cvdvec" path="res://common/data/royal_left_arm.tres" id="7_qtfia"]
-[ext_resource type="Resource" uid="uid://driterxd8nc7x" path="res://common/data/chipone_head.tres" id="8_8ghip"]
-[ext_resource type="Resource" uid="uid://cj3vo1o5xhl6x" path="res://common/data/chipone_right_arm.tres" id="8_84gbf"]
-[ext_resource type="Resource" uid="uid://bojoqa4lw1dre" path="res://common/data/royal_head_arm.tres" id="9_i0j6w"]
-[ext_resource type="Resource" uid="uid://ynkcnl0gbcxa" path="res://common/data/royal_right_arm.tres" id="12_82cek"]
-[ext_resource type="Shader" path="res://common/shaders/CTR.gdshader" id="13_4mm7h"]
-[ext_resource type="Shader" path="res://common/shaders/circle_fade.gdshader" id="13_027tu"]
-[ext_resource type="AudioStream" uid="uid://b0g1geq4sfsml" path="res://common/shaders/Drop Point.mp3" id="14_if6an"]
+[ext_resource type="Script" path="res://common/scripts/player_test/player_test.gd" id="1_3bvdb"]
+[ext_resource type="PackedScene" uid="uid://t462ol02sj2b" path="res://player/player.tscn" id="2_gpe8n"]
+[ext_resource type="Texture2D" uid="uid://cha1lq6my42vd" path="res://all_chipone/art/placeholder_sala.png" id="3_u2iqf"]
+[ext_resource type="Shader" path="res://common/shaders/CTR.gdshader" id="14_qw2k2"]
+[ext_resource type="Shader" path="res://common/shaders/circle_fade.gdshader" id="15_5sgti"]
+[ext_resource type="AudioStream" uid="uid://b0g1geq4sfsml" path="res://common/shaders/Drop Point.mp3" id="16_ag2ol"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0josx"]
 
@@ -29,7 +19,7 @@ normal = Vector2(1, 0)
 normal = Vector2(-1, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_26j2x"]
-shader = ExtResource("13_4mm7h")
+shader = ExtResource("14_qw2k2")
 shader_parameter/overlay = true
 shader_parameter/scanlines_opacity = 0.0
 shader_parameter/scanlines_width = 0.25
@@ -53,7 +43,7 @@ shader_parameter/vignette_intensity = 0.43
 shader_parameter/vignette_opacity = 0.449
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eyk4x"]
-shader = ExtResource("13_027tu")
+shader = ExtResource("15_5sgti")
 shader_parameter/circle_size = 1.1
 shader_parameter/feather = 0.05
 shader_parameter/circle_position = Vector2(0.48, 0.43)
@@ -99,12 +89,12 @@ _data = {
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_alvox"]
 stream_count = 1
-stream_0 = ExtResource("14_if6an")
+stream_0 = ExtResource("16_ag2ol")
 
 [node name="PlayerTest" type="Node2D"]
-script = ExtResource("1_8ls7f")
+script = ExtResource("1_3bvdb")
 
-[node name="Player" parent="." instance=ExtResource("1_mox71")]
+[node name="Player" parent="." instance=ExtResource("2_gpe8n")]
 position = Vector2(930, 448)
 
 [node name="Ground" type="StaticBody2D" parent="."]
@@ -115,7 +105,7 @@ shape = SubResource("WorldBoundaryShape2D_0josx")
 
 [node name="IdeiaSala" type="Sprite2D" parent="."]
 z_index = -2
-texture = ExtResource("2_us7gl")
+texture = ExtResource("3_u2iqf")
 centered = false
 
 [node name="Platform" type="StaticBody2D" parent="."]
@@ -143,37 +133,6 @@ shape = SubResource("WorldBoundaryShape2D_yrdai")
 [node name="Right" type="CollisionShape2D" parent="Walls"]
 position = Vector2(1829, 774)
 shape = SubResource("WorldBoundaryShape2D_w114c")
-
-[node name="BossBase" parent="." instance=ExtResource("3_l3pcv")]
-
-[node name="WheelController" type="Node2D" parent="."]
-script = ExtResource("4_8q2er")
-
-[node name="LeftArmWheel" parent="WheelController" instance=ExtResource("4_4yd00")]
-offset_left = 42.5
-offset_top = 165.0
-offset_right = 42.5
-offset_bottom = 165.0
-scale = Vector2(0.75, 0.75)
-pieces = Array[ExtResource("5_r6xhk")]([ExtResource("6_b6v0p"), ExtResource("7_qtfia")])
-
-[node name="HeadWheel" parent="WheelController" instance=ExtResource("4_4yd00")]
-offset_left = 679.0
-offset_top = 165.0
-offset_right = 679.0
-offset_bottom = 165.0
-scale = Vector2(0.75, 0.75)
-pieces = Array[ExtResource("5_r6xhk")]([ExtResource("8_8ghip"), ExtResource("9_i0j6w")])
-spin_duration = 7.0
-
-[node name="RightArmWheel" parent="WheelController" instance=ExtResource("4_4yd00")]
-offset_left = 1320.0
-offset_top = 165.0
-offset_right = 1320.0
-offset_bottom = 165.0
-scale = Vector2(0.75, 0.75)
-pieces = Array[ExtResource("5_r6xhk")]([ExtResource("8_84gbf"), ExtResource("12_82cek")])
-spin_duration = 6.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

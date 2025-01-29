@@ -3,7 +3,6 @@ extends Control
 
 signal spin_end(piece: WheelPiece)
 
-@export var tex: Texture2D
 @export var pieces: Array[WheelPiece]
 @export var wheel: TextureRect
 @export var angle_offset: float

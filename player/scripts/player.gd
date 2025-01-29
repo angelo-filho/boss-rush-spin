@@ -20,7 +20,7 @@ var last_direction: float = 1.0
 func _ready() -> void:
 	health_component.damage_received.connect(_on_damage_received)
 	health_component.died.connect(func(): get_tree().change_scene_to_file.call_deferred(("res://levels/game_over.tscn")))
-
+	EventBus.boss_died.connect(func(): health_component.is_invecible = true)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):

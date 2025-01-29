@@ -9,11 +9,7 @@ signal died
 @export var max_health: float
 @export var invecible_duration: float = 0.0
 
-var timer: SceneTreeTimer
-
-var is_invecible: bool:
-	get:
-		return timer and timer.time_left > 0.0
+var is_invecible: bool = false
 var is_dead: bool:
 	get:
 		return health <= 0
@@ -35,7 +31,8 @@ func receive_damage(damage: float) -> void:
 	damage_received.emit()
 	
 	if invecible_duration > 0.0:
-		timer = get_tree().create_timer(invecible_duration)
+		is_invecible = true
+		get_tree().create_timer(invecible_duration).timeout.connect(func(): is_invecible = false)
 	
 	if health == 0:
 		died.emit()
