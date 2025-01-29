@@ -264,7 +264,7 @@ autoplay = "idle"
 
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("9_y87it")
-max_health = 50.0
+max_health = 1000.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

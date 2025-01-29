@@ -94,6 +94,7 @@ stream_count = 1
 stream_0 = ExtResource("14_if6an")
 
 [node name="PlayerTest" type="Node2D"]
+position = Vector2(-3, 0)
 script = ExtResource("1_8ls7f")
 
 [node name="Player" parent="." instance=ExtResource("1_mox71")]

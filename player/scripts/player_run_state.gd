@@ -1,7 +1,16 @@
 extends PlayerState
 
+@onready var right_walk_particle: GPUParticles2D = $"../../RightWalkParticle"
+@onready var left_walk_particle: GPUParticles2D = $"../../LeftWalkParticle"
+
+
 func enter(message: Dictionary = {}) -> void:
 	core.animation_controller.play_run()
+
+
+func exit():
+	right_walk_particle.emitting = false
+	left_walk_particle.emitting = false
 
 
 func physics_tick(delta: float) -> void:
@@ -25,5 +34,11 @@ func physics_tick(delta: float) -> void:
 		
 		return
 	
+	if core.direction > 0:
+		right_walk_particle.emitting = false
+		left_walk_particle.emitting = true
+	else:
+		right_walk_particle.emitting = true
+		left_walk_particle.emitting = false
 	
 	core.move_horizontaly()
