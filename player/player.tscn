@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://t462ol02sj2b"]
+[gd_scene load_steps=100 format=3 uid="uid://t462ol02sj2b"]
 
 [ext_resource type="Script" path="res://player/scripts/player.gd" id="1_iy8or"]
 [ext_resource type="Texture2D" uid="uid://dbd2ugfq5gh8t" path="res://player/art/Idle_Sheldon_Spritesheet.png" id="2_tl8ql"]
@@ -714,6 +714,86 @@ color = Color(0.71, 0.71, 0.71, 1)
 alpha_curve = SubResource("CurveTexture_0sggb")
 anim_offset_max = 1.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1hrw5"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_mviw2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1qrmf"]
+curve = SubResource("Curve_mviw2")
+
+[sub_resource type="Curve" id="Curve_eqv3y"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_tbhtx"]
+curve_x = SubResource("Curve_eqv3y")
+
+[sub_resource type="Curve" id="Curve_hif8f"]
+_data = [Vector2(0, 0.753846), 0.0, 0.0, 0, 0, Vector2(0.225, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.578022), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_y0np3"]
+curve = SubResource("Curve_hif8f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_28kj6"]
+lifetime_randomness = 0.27
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 12.0
+angle_min = 1.07288e-05
+angle_max = 360.0
+inherit_velocity_ratio = 1.0
+velocity_pivot = Vector3(1, 0, 0)
+spread = 0.0
+directional_velocity_min = 50.0
+directional_velocity_max = 50.0
+directional_velocity_curve = SubResource("CurveXYZTexture_tbhtx")
+gravity = Vector3(0, -30, 0)
+scale_min = 0.6
+scale_max = 0.6
+scale_curve = SubResource("CurveTexture_y0np3")
+color = Color(0.802191, 0.802191, 0.802191, 1)
+alpha_curve = SubResource("CurveTexture_1qrmf")
+anim_offset_max = 1.0
+
+[sub_resource type="Curve" id="Curve_f2kcm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_2j2ui"]
+curve_x = SubResource("Curve_f2kcm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c3u28"]
+lifetime_randomness = 0.27
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 12.0
+angle_min = 1.07288e-05
+angle_max = 360.0
+inherit_velocity_ratio = 1.0
+velocity_pivot = Vector3(1, 0, 0)
+spread = 0.0
+directional_velocity_min = -50.0
+directional_velocity_max = -50.0
+directional_velocity_curve = SubResource("CurveXYZTexture_2j2ui")
+gravity = Vector3(0, -30, 0)
+scale_min = 0.6
+scale_max = 0.6
+scale_curve = SubResource("CurveTexture_y0np3")
+color = Color(0.802191, 0.802191, 0.802191, 1)
+alpha_curve = SubResource("CurveTexture_1qrmf")
+anim_offset_max = 1.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_iy8or")
 speed = 600.0
@@ -911,3 +991,21 @@ one_shot = true
 randomness = 0.5
 fixed_fps = 60
 draw_order = 0
+
+[node name="RightWalkParticle" type="GPUParticles2D" parent="."]
+z_index = 2
+material = SubResource("CanvasItemMaterial_1hrw5")
+position = Vector2(0, 81)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_28kj6")
+texture = ExtResource("30_rdgp6")
+explosiveness = 1.0
+
+[node name="LeftWalkParticle" type="GPUParticles2D" parent="."]
+z_index = 2
+material = SubResource("CanvasItemMaterial_1hrw5")
+position = Vector2(0, 81)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_c3u28")
+texture = ExtResource("30_rdgp6")
+explosiveness = 1.0

@@ -105,7 +105,6 @@ func spin():
 
 func _on_spin_finished(piece_index: int):
 	var piece = pieces[piece_index]
-	print(piece.name)
 	is_spinning = false
 	wheel.rotation_degrees = int(wheel.rotation_degrees) % 360
 	spin_end.emit(piece)
