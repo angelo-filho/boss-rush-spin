@@ -347,6 +347,8 @@ sprite_frames = SubResource("SpriteFrames_ycqxj")
 
 [node name="ChipsDrag" type="AudioStreamPlayer" parent="SFXs"]
 stream = ExtResource("3_tvev5")
+bus = &"SFX"
 
 [node name="ChipsHitGround" type="AudioStreamPlayer" parent="SFXs"]
 stream = ExtResource("3_ibll4")
+bus = &"SFX"

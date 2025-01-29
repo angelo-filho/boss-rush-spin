@@ -1,8 +1,7 @@
 extends BossState
 
 @export var possible_states: Array[State]
-
-var time_state: float = 4.0
+@export var time_state: float = 4.0
 var shuffle_bag: ShuffleBag
 
 func _ready() -> void:

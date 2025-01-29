@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://t462ol02sj2b"]
+[gd_scene load_steps=89 format=3 uid="uid://t462ol02sj2b"]
 
 [ext_resource type="Script" path="res://player/scripts/player.gd" id="1_iy8or"]
 [ext_resource type="Texture2D" uid="uid://dbd2ugfq5gh8t" path="res://player/art/Idle_Sheldon_Spritesheet.png" id="2_tl8ql"]
@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://cwrh4hbj1bq4g" path="res://player/SFXs/RabbitPunch5.wav" id="25_l3moo"]
 [ext_resource type="AudioStream" uid="uid://cqlq0xeiqog3k" path="res://player/SFXs/RabbitDamage.wav" id="26_hdix8"]
 [ext_resource type="AudioStream" uid="uid://dor2l0gubbbb5" path="res://player/SFXs/player_dash.wav" id="27_u4s5f"]
+[ext_resource type="Texture2D" uid="uid://dwjdjmnn78tek" path="res://dust_particles.png" id="30_rdgp6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srdcw"]
 radius = 27.0
@@ -650,6 +651,69 @@ random_pitch = 1.1
 streams_count = 1
 stream_0/stream = ExtResource("27_u4s5f")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_prdxy"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_8urtk"]
+_data = [Vector2(0, 0.8529), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wniyf"]
+curve = SubResource("Curve_8urtk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qqxjt"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 1)
+velocity_pivot = Vector3(1, 0, 0)
+direction = Vector3(0, 0, 0)
+spread = 18.344
+flatness = 1.0
+initial_velocity_min = -100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, -130, 0)
+damping_min = 97.842
+damping_max = 97.842
+color = Color(0.709804, 0.709804, 0.709804, 1)
+alpha_curve = SubResource("CurveTexture_wniyf")
+anim_offset_max = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2gxro"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_vr3wu"]
+_data = [Vector2(0, 0.843706), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0sggb"]
+curve = SubResource("Curve_vr3wu")
+
+[sub_resource type="Curve" id="Curve_lqrob"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mlgmt"]
+curve = SubResource("Curve_lqrob")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xgean"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 6.7
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+scale_max = 0.8
+scale_curve = SubResource("CurveTexture_mlgmt")
+color = Color(0.71, 0.71, 0.71, 1)
+alpha_curve = SubResource("CurveTexture_0sggb")
+anim_offset_max = 1.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_iy8or")
 speed = 600.0
@@ -822,3 +886,28 @@ custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 texture = ExtResource("21_s6lbf")
 stretch_mode = 4
+
+[node name="JumpDust" type="GPUParticles2D" parent="."]
+z_index = 2
+material = SubResource("CanvasItemMaterial_prdxy")
+position = Vector2(0, 81)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_qqxjt")
+texture = ExtResource("30_rdgp6")
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+
+[node name="JumpTrail" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_2gxro")
+position = Vector2(0, 58)
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_xgean")
+texture = ExtResource("30_rdgp6")
+lifetime = 0.8
+one_shot = true
+randomness = 0.5
+fixed_fps = 60
+draw_order = 0
