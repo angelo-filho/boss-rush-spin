@@ -1,21 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://nbkvxn2q07p3"]
+[gd_scene load_steps=19 format=3 uid="uid://nbkvxn2q07p3"]
 
 [ext_resource type="Script" path="res://common/scripts/player_test/player_test.gd" id="1_8ls7f"]
 [ext_resource type="PackedScene" uid="uid://t462ol02sj2b" path="res://player/player.tscn" id="1_mox71"]
 [ext_resource type="Texture2D" uid="uid://cha1lq6my42vd" path="res://all_chipone/art/placeholder_sala.png" id="2_us7gl"]
-[ext_resource type="PackedScene" uid="uid://bfaxr7fpoeug3" path="res://boss/boss.tscn" id="3_l3pcv"]
-[ext_resource type="PackedScene" uid="uid://dw3778j8p8khm" path="res://wheel/wheel.tscn" id="4_4yd00"]
-[ext_resource type="Script" path="res://wheel/wheel_controller.gd" id="4_8q2er"]
-[ext_resource type="Script" path="res://wheel/wheel_piece.gd" id="5_r6xhk"]
-[ext_resource type="Resource" uid="uid://cd51mj4o87fnx" path="res://common/data/chipone_left_arm.tres" id="6_b6v0p"]
-[ext_resource type="Resource" uid="uid://dm2uw67cvdvec" path="res://common/data/royal_left_arm.tres" id="7_qtfia"]
-[ext_resource type="Resource" uid="uid://driterxd8nc7x" path="res://common/data/chipone_head.tres" id="8_8ghip"]
-[ext_resource type="Resource" uid="uid://cj3vo1o5xhl6x" path="res://common/data/chipone_right_arm.tres" id="8_84gbf"]
-[ext_resource type="Resource" uid="uid://bojoqa4lw1dre" path="res://common/data/royal_head_arm.tres" id="9_i0j6w"]
-[ext_resource type="Resource" uid="uid://ynkcnl0gbcxa" path="res://common/data/royal_right_arm.tres" id="12_82cek"]
 [ext_resource type="Shader" path="res://common/shaders/CTR.gdshader" id="13_4mm7h"]
 [ext_resource type="Shader" path="res://common/shaders/circle_fade.gdshader" id="13_027tu"]
 [ext_resource type="AudioStream" uid="uid://b0g1geq4sfsml" path="res://common/shaders/Drop Point.mp3" id="14_if6an"]
+[ext_resource type="Texture2D" uid="uid://cy03skdjgem7s" path="res://common/art/background.png" id="17_8g0tv"]
+[ext_resource type="PackedScene" uid="uid://cwr8cysdmrxet" path="res://jackpot/jackpot.tscn" id="17_ntbyn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0josx"]
 
@@ -144,37 +136,6 @@ shape = SubResource("WorldBoundaryShape2D_yrdai")
 position = Vector2(1829, 774)
 shape = SubResource("WorldBoundaryShape2D_w114c")
 
-[node name="BossBase" parent="." instance=ExtResource("3_l3pcv")]
-
-[node name="WheelController" type="Node2D" parent="."]
-script = ExtResource("4_8q2er")
-
-[node name="LeftArmWheel" parent="WheelController" instance=ExtResource("4_4yd00")]
-offset_left = 42.5
-offset_top = 165.0
-offset_right = 42.5
-offset_bottom = 165.0
-scale = Vector2(0.75, 0.75)
-pieces = Array[ExtResource("5_r6xhk")]([ExtResource("6_b6v0p"), ExtResource("7_qtfia")])
-
-[node name="HeadWheel" parent="WheelController" instance=ExtResource("4_4yd00")]
-offset_left = 679.0
-offset_top = 165.0
-offset_right = 679.0
-offset_bottom = 165.0
-scale = Vector2(0.75, 0.75)
-pieces = Array[ExtResource("5_r6xhk")]([ExtResource("8_8ghip"), ExtResource("9_i0j6w")])
-spin_duration = 7.0
-
-[node name="RightArmWheel" parent="WheelController" instance=ExtResource("4_4yd00")]
-offset_left = 1320.0
-offset_top = 165.0
-offset_right = 1320.0
-offset_bottom = 165.0
-scale = Vector2(0.75, 0.75)
-pieces = Array[ExtResource("5_r6xhk")]([ExtResource("8_84gbf"), ExtResource("12_82cek")])
-spin_duration = 6.0
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
@@ -230,3 +191,11 @@ stream = SubResource("AudioStreamPlaylist_alvox")
 volume_db = -2.405
 autoplay = true
 bus = &"Music"
+
+[node name="Background" type="Sprite2D" parent="."]
+visible = false
+z_index = -2
+texture = ExtResource("17_8g0tv")
+centered = false
+
+[node name="Jackpot" parent="." instance=ExtResource("17_ntbyn")]
