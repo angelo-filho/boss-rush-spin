@@ -16,6 +16,7 @@ func tick(delta: float) -> void:
 	if time_state <= 0.0:
 		var next_state = choose_next_state()
 		time_state = 4.0
+		print("hi")
 		fsm.change_state(next_state)
 
 
