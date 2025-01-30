@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1osq3p8ubr2c"]
+
+[ext_resource type="Script" path="res://common/scripts/player_test/player_test.gd" id="1_08vjo"]
+
+[node name="GameIntro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_08vjo")
