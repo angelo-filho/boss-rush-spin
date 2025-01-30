@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://diuwil5nugc2v"]
+
+[ext_resource type="PackedScene" uid="uid://b2oiqqwn00hw" path="res://text_box.tscn" id="1_pf17m"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextBox" parent="." instance=ExtResource("1_pf17m")]
