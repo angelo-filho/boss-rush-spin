@@ -43,7 +43,3 @@ func setup_body_parts(boss_data: BossData):
 func _on_died():
 	EventBus.boss_died.emit()
 	$DeathParticle.emitting = true
-	
-	await get_tree().create_timer(3.0).timeout
-	
-	get_tree().change_scene_to_file.call_deferred("res://levels/game_over.tscn")
