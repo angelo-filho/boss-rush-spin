@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy03skdjgem7s"
-path="res://.godot/imported/background.png-1d4ec44f14eba1e7d20db4264c477ea4.ctex"
+uid="uid://8urjgtsuw3ei"
+path="res://.godot/imported/Floating_plat_2.png-4a802ee0ccbc2cb37ae9ecc6eb892c51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/art/background.png"
-dest_files=["res://.godot/imported/background.png-1d4ec44f14eba1e7d20db4264c477ea4.ctex"]
+source_file="res://common/art/scenario/Floating_plat_2.png"
+dest_files=["res://.godot/imported/Floating_plat_2.png-4a802ee0ccbc2cb37ae9ecc6eb892c51.ctex"]
 
 [params]
 

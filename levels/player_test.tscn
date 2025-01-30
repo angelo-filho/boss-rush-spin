@@ -5,7 +5,7 @@
 [ext_resource type="Shader" path="res://common/shaders/CTR.gdshader" id="13_4mm7h"]
 [ext_resource type="Shader" path="res://common/shaders/circle_fade.gdshader" id="13_027tu"]
 [ext_resource type="AudioStream" uid="uid://b0g1geq4sfsml" path="res://common/shaders/Drop Point.mp3" id="14_if6an"]
-[ext_resource type="Texture2D" uid="uid://cy03skdjgem7s" path="res://common/art/background.png" id="17_8g0tv"]
+[ext_resource type="Texture2D" uid="uid://cy03skdjgem7s" path="res://common/art/scenario/background.png" id="17_8g0tv"]
 [ext_resource type="PackedScene" uid="uid://cwr8cysdmrxet" path="res://jackpot/jackpot.tscn" id="17_ntbyn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0josx"]

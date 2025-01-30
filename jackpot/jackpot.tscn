@@ -169,24 +169,6 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a6gsx"]
-particles_animation = true
-particles_anim_h_frames = 8
-particles_anim_v_frames = 8
-particles_anim_loop = false
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bflpf"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(700, 300, 1)
-gravity = Vector3(0, 0, 0)
-anim_speed_min = 1.0
-anim_speed_max = 1.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h0on6"]
-atlas = ExtResource("14_8k1nu")
-region = Rect2(0, 200, 150, 200)
-
 [sub_resource type="Animation" id="Animation_w5jyk"]
 length = 0.001
 tracks/0/type = "value"
@@ -381,6 +363,24 @@ _data = {
 "idle": SubResource("Animation_88hcl")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a6gsx"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 8
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bflpf"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(700, 300, 1)
+gravity = Vector3(0, 0, 0)
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0on6"]
+atlas = ExtResource("14_8k1nu")
+region = Rect2(0, 200, 150, 200)
+
 [node name="Jackpot" type="Node2D"]
 script = ExtResource("1_pda4h")
 metadata/_edit_vertical_guides_ = [986.0]
@@ -400,7 +400,7 @@ point = 1
 
 [node name="AttackFX" type="Node2D" parent="FiniteState/HeadAttack" node_paths=PackedStringArray("wheel")]
 script = ExtResource("9_20ven")
-wheel = NodePath("../../../WheelController/HeadWheel")
+wheel = NodePath("../../../BodyParts/WheelController/HeadWheel")
 
 [node name="ArmRightAttack" type="Node2D" parent="FiniteState"]
 script = ExtResource("8_kxou3")
@@ -408,7 +408,7 @@ point = 2
 
 [node name="AttackFX" type="Node2D" parent="FiniteState/ArmRightAttack" node_paths=PackedStringArray("wheel")]
 script = ExtResource("9_20ven")
-wheel = NodePath("../../../WheelController/RightArmWheel")
+wheel = NodePath("../../../BodyParts/WheelController/RightArmWheel")
 body_part = 2
 
 [node name="ArmLeftAttack" type="Node2D" parent="FiniteState"]
@@ -416,7 +416,7 @@ script = ExtResource("8_kxou3")
 
 [node name="AttackFX" type="Node2D" parent="FiniteState/ArmLeftAttack" node_paths=PackedStringArray("wheel")]
 script = ExtResource("9_20ven")
-wheel = NodePath("../../../WheelController/LeftArmWheel")
+wheel = NodePath("../../../BodyParts/WheelController/LeftArmWheel")
 body_part = 1
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -489,11 +489,48 @@ script = ExtResource("11_kdpa7")
 sprite_frames = SubResource("SpriteFrames_5hnf3")
 centered = false
 
+[node name="WheelController" type="Node2D" parent="BodyParts"]
+
+[node name="LeftArmWheel" parent="BodyParts/WheelController" instance=ExtResource("20_swn4v")]
+offset_left = 12.0
+offset_top = 151.0
+offset_right = 12.0
+offset_bottom = 151.0
+rotation = 0.10472
+scale = Vector2(0.38, 0.38)
+pieces = Array[ExtResource("21_yafcv")]([ExtResource("22_rotgx"), ExtResource("23_jy0as"), ExtResource("22_rotgx"), ExtResource("23_jy0as")])
+spin_duration = 2.0
+
+[node name="HeadWheel" parent="BodyParts/WheelController" instance=ExtResource("20_swn4v")]
+offset_left = 588.0
+offset_top = -71.0
+offset_right = 588.0
+offset_bottom = -71.0
+scale = Vector2(0.58, 0.58)
+pieces = Array[ExtResource("21_yafcv")]([ExtResource("24_b77wc"), ExtResource("25_7otmk"), ExtResource("24_b77wc"), ExtResource("25_7otmk")])
+spin_duration = 2.0
+
+[node name="RightArmWheel" parent="BodyParts/WheelController" instance=ExtResource("20_swn4v")]
+offset_left = 1178.0
+offset_top = 148.0
+offset_right = 1178.0
+offset_bottom = 148.0
+rotation = -0.190241
+scale = Vector2(0.38, 0.38)
+pieces = Array[ExtResource("21_yafcv")]([ExtResource("26_0561c"), ExtResource("27_8pc3c"), ExtResource("26_0561c"), ExtResource("27_8pc3c")])
+spin_duration = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BodyParts/WheelController"]
+libraries = {
+"": SubResource("AnimationLibrary_i8s5w")
+}
+autoplay = "idle"
+
 [node name="DeathParticle" type="GPUParticles2D" parent="."]
+z_index = 1
 material = SubResource("CanvasItemMaterial_a6gsx")
 position = Vector2(986, 456)
 scale = Vector2(1.07589, 0.978808)
-emitting = false
 process_material = SubResource("ParticleProcessMaterial_bflpf")
 texture = ExtResource("12_q4ffa")
 randomness = 1.0
@@ -515,40 +552,3 @@ position = Vector2(986, 387)
 
 [node name="LeftPoint" type="Marker2D" parent="WarningController/Points"]
 position = Vector2(319, 387)
-
-[node name="WheelController" type="Node2D" parent="."]
-
-[node name="LeftArmWheel" parent="WheelController" instance=ExtResource("20_swn4v")]
-offset_left = 12.0
-offset_top = 151.0
-offset_right = 12.0
-offset_bottom = 151.0
-rotation = 0.10472
-scale = Vector2(0.38, 0.38)
-pieces = Array[ExtResource("21_yafcv")]([ExtResource("22_rotgx"), ExtResource("23_jy0as"), ExtResource("22_rotgx"), ExtResource("23_jy0as")])
-spin_duration = 2.0
-
-[node name="HeadWheel" parent="WheelController" instance=ExtResource("20_swn4v")]
-offset_left = 588.0
-offset_top = -71.0
-offset_right = 588.0
-offset_bottom = -71.0
-scale = Vector2(0.58, 0.58)
-pieces = Array[ExtResource("21_yafcv")]([ExtResource("24_b77wc"), ExtResource("25_7otmk"), ExtResource("24_b77wc"), ExtResource("25_7otmk")])
-spin_duration = 2.0
-
-[node name="RightArmWheel" parent="WheelController" instance=ExtResource("20_swn4v")]
-offset_left = 1178.0
-offset_top = 148.0
-offset_right = 1178.0
-offset_bottom = 148.0
-rotation = -0.190241
-scale = Vector2(0.38, 0.38)
-pieces = Array[ExtResource("21_yafcv")]([ExtResource("26_0561c"), ExtResource("27_8pc3c"), ExtResource("26_0561c"), ExtResource("27_8pc3c")])
-spin_duration = 2.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="WheelController"]
-libraries = {
-"": SubResource("AnimationLibrary_i8s5w")
-}
-autoplay = "idle"
