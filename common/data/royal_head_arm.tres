@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WheelPiece" load_steps=6 format=3 uid="uid://bojoqa4lw1dre"]
 
 [ext_resource type="PackedScene" uid="uid://b0g53bt8rx3xd" path="res://royal_chan/fx/royal_head_attack_fx.tscn" id="1_xy160"]
-[ext_resource type="Texture2D" uid="uid://btnpuqv4nr4fq" path="res://common/art/icons/royal_icon.png" id="2_ml11t"]
+[ext_resource type="Texture2D" uid="uid://dgeyeej3wdx23" path="res://common/art/icons/Royal_Icon_Roulette.png" id="2_mf5th"]
 [ext_resource type="SpriteFrames" uid="uid://6675t62knkt7" path="res://royal_chan/frames/royal_head_frames.tres" id="3_ven0t"]
 [ext_resource type="SpriteFrames" uid="uid://dacqlv7txegxl" path="res://royal_chan/frames/royal_torso_frames.tres" id="4_u82e8"]
 [ext_resource type="Script" path="res://wheel/wheel_piece.gd" id="4_yasic"]
@@ -9,6 +9,6 @@
 [resource]
 script = ExtResource("4_yasic")
 name = "Royal Left Arm"
-icon = ExtResource("2_ml11t")
+icon = ExtResource("2_mf5th")
 part_sprites = Array[SpriteFrames]([ExtResource("3_ven0t"), ExtResource("4_u82e8")])
 fx = ExtResource("1_xy160")

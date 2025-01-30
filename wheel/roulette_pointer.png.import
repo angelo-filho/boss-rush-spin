@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bacb7vajmqk8h"
-path="res://.godot/imported/traingle.png-0ed7e91e3c06b04063dbc9ffa00ae496.ctex"
+uid="uid://dj1dhvoah2ugt"
+path="res://.godot/imported/roulette_pointer.png-9dbd419c7e1664720d13ffee2530471c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://traingle.png"
-dest_files=["res://.godot/imported/traingle.png-0ed7e91e3c06b04063dbc9ffa00ae496.ctex"]
+source_file="res://wheel/roulette_pointer.png"
+dest_files=["res://.godot/imported/roulette_pointer.png-9dbd419c7e1664720d13ffee2530471c.ctex"]
 
 [params]
 

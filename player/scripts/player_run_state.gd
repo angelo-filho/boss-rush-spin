@@ -34,11 +34,12 @@ func physics_tick(delta: float) -> void:
 		
 		return
 	
+	core.move_horizontaly()
+	
 	if core.direction > 0:
 		right_walk_particle.emitting = false
 		left_walk_particle.emitting = true
-	else:
+	elif core.direction < 0:
 		right_walk_particle.emitting = true
 		left_walk_particle.emitting = false
 	
-	core.move_horizontaly()

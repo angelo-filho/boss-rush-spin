@@ -1,6 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://c8i4wmp505iuw"]
+[gd_scene load_steps=30 format=3 uid="uid://c8i4wmp505iuw"]
 
-[ext_resource type="Script" path="res://levels/main.gd" id="1_jrymy"]
+[ext_resource type="Script" path="res://common/scripts/player_test/player_test.gd" id="1_07a1a"]
 [ext_resource type="PackedScene" uid="uid://t462ol02sj2b" path="res://player/player.tscn" id="2_5y3bv"]
 [ext_resource type="Texture2D" uid="uid://cha1lq6my42vd" path="res://all_chipone/art/placeholder_sala.png" id="3_38bxr"]
 [ext_resource type="Shader" path="res://common/shaders/CTR.gdshader" id="4_l5pmr"]
@@ -18,7 +18,6 @@
 [ext_resource type="Resource" uid="uid://ynkcnl0gbcxa" path="res://common/data/royal_right_arm.tres" id="16_fsl2d"]
 [ext_resource type="Texture2D" uid="uid://b0jvj7sa2lxl3" path="res://jackpot/jackpot_todinho.png" id="17_04gg1"]
 [ext_resource type="PackedScene" uid="uid://bfaxr7fpoeug3" path="res://boss/boss.tscn" id="17_cu4we"]
-[ext_resource type="PackedScene" uid="uid://c5rswpvnl0vl3" path="res://pause_menu.tscn" id="18_xgkcq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0josx"]
 
@@ -108,255 +107,9 @@ stream_0 = ExtResource("6_g5p33")
 atlas = ExtResource("17_04gg1")
 region = Rect2(0, 0, 1920, 1080)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mclio"]
-atlas = ExtResource("17_04gg1")
-region = Rect2(0, 0, 1920, 1080)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mv743"]
-atlas = ExtResource("17_04gg1")
-region = Rect2(1920, 0, 1920, 1080)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fkc0w"]
-atlas = ExtResource("17_04gg1")
-region = Rect2(3840, 0, 1920, 1080)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1edsv"]
-atlas = ExtResource("17_04gg1")
-region = Rect2(0, 1080, 1920, 1080)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7lsup"]
-atlas = ExtResource("17_04gg1")
-region = Rect2(1920, 1080, 1920, 1080)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3w1sa"]
-atlas = ExtResource("17_04gg1")
-region = Rect2(3840, 1080, 1920, 1080)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d3qxi"]
-atlas = ExtResource("17_04gg1")
-region = Rect2(0, 2160, 1920, 1080)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t00yr"]
-atlas = ExtResource("17_04gg1")
-region = Rect2(1920, 2160, 1920, 1080)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gypp8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mclio")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mv743")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fkc0w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1edsv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7lsup")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3w1sa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d3qxi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t00yr")
-}],
-"loop": true,
-"name": &"default",
-"speed": 8.0
-}]
-
-[sub_resource type="Animation" id="Animation_w5jyk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LeftArmWheel:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.10472]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LeftArmWheel:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(12, 151)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("HeadWheel:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(588, -71)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("HeadWheel:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("RightArmWheel:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1178, 148)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("RightArmWheel:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.190241]
-}
-
-[sub_resource type="Animation" id="Animation_88hcl"]
-resource_name = "idle"
-loop_mode = 1
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LeftArmWheel:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0.10472, 0.0174533, -0.270526, 0.0174533, 0.10472, 0.375246, 0.479966, 0.375246]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LeftArmWheel:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(12, 151), Vector2(-10, 149), Vector2(-57, 155), Vector2(-10, 149), Vector2(12, 151), Vector2(65, 170), Vector2(103, 176), Vector2(65, 170)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("HeadWheel:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(588, -71), Vector2(471, 18), Vector2(439, 54), Vector2(471, 18), Vector2(588, -71), Vector2(703, 27), Vector2(758, 58), Vector2(703, 27)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("HeadWheel:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0.0, -0.15708, -0.644027, -0.15708, 0.0, 0.314159, 0.628319, 0.314159]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("RightArmWheel:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(1178, 148), Vector2(1126, 168), Vector2(1105, 177), Vector2(1126, 168), Vector2(1178, 148), Vector2(1209, 145), Vector2(1255, 153), Vector2(1209, 145)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("RightArmWheel:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [-0.190241, -0.443314, -0.55676, -0.443314, -0.190241, -0.0506145, 0.219911, -0.0506145]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ncg1d"]
-_data = {
-"RESET": SubResource("Animation_w5jyk"),
-"idle": SubResource("Animation_88hcl")
-}
-
 [node name="Round1" type="Node2D"]
 position = Vector2(-3, 0)
-script = ExtResource("1_jrymy")
+script = ExtResource("1_07a1a")
 
 [node name="Player" parent="." instance=ExtResource("2_5y3bv")]
 position = Vector2(930, 448)
@@ -455,7 +208,6 @@ autoplay = true
 bus = &"Music"
 
 [node name="Background" type="Sprite2D" parent="."]
-visible = false
 z_index = -2
 texture = ExtResource("7_lodpr")
 centered = false
@@ -464,12 +216,7 @@ centered = false
 script = ExtResource("9_iuol4")
 
 [node name="JackpotRoullet" type="Sprite2D" parent="WheelController"]
-visible = false
 texture = SubResource("AtlasTexture_il13d")
-centered = false
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WheelController"]
-sprite_frames = SubResource("SpriteFrames_gypp8")
 centered = false
 
 [node name="LeftArmWheel" parent="WheelController" instance=ExtResource("9_efcre")]
@@ -477,7 +224,7 @@ offset_left = 12.0
 offset_top = 151.0
 offset_right = 12.0
 offset_bottom = 151.0
-rotation = 0.10472
+rotation = 0.0959931
 scale = Vector2(0.38, 0.38)
 pieces = Array[ExtResource("10_gv0nj")]([ExtResource("11_u73e5"), ExtResource("12_1d37o")])
 
@@ -486,7 +233,7 @@ offset_left = 588.0
 offset_top = -71.0
 offset_right = 588.0
 offset_bottom = -71.0
-scale = Vector2(0.58, 0.58)
+scale = Vector2(0.585, 0.585)
 pieces = Array[ExtResource("10_gv0nj")]([ExtResource("13_a7sut"), ExtResource("14_pvjy8")])
 
 [node name="RightArmWheel" parent="WheelController" instance=ExtResource("9_efcre")]
@@ -498,19 +245,4 @@ rotation = -0.190241
 scale = Vector2(0.38, 0.38)
 pieces = Array[ExtResource("10_gv0nj")]([ExtResource("15_2p7ut"), ExtResource("16_fsl2d")])
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="WheelController"]
-libraries = {
-"": SubResource("AnimationLibrary_ncg1d")
-}
-autoplay = "idle"
-
 [node name="BossBase" parent="." instance=ExtResource("17_cu4we")]
-
-[node name="PauseMenu" parent="." instance=ExtResource("18_xgkcq")]
-visible = false
-z_index = 2
-offset_left = 539.0
-offset_top = 161.0
-offset_right = 539.0
-offset_bottom = 161.0
-metadata/_edit_use_anchors_ = true

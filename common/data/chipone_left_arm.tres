@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="WheelPiece" load_steps=5 format=3 uid="uid://cd51mj4o87fnx"]
 
-[ext_resource type="Texture2D" uid="uid://d2orntju2g21d" path="res://common/art/icons/chipone_icon.png" id="1_47f1r"]
 [ext_resource type="PackedScene" uid="uid://cxpxw5qirwc1p" path="res://all_chipone/fx/all_chipone_arm_left_attack_fx.tscn" id="1_r3j2a"]
 [ext_resource type="Script" path="res://wheel/wheel_piece.gd" id="2_18ivx"]
+[ext_resource type="Texture2D" uid="uid://dk1hq621t6482" path="res://common/art/icons/AllChip_Icon_Roulette.png" id="2_how7y"]
 [ext_resource type="SpriteFrames" uid="uid://bfdmmhh2buhn1" path="res://all_chipone/frames/all_chipone_left_arm_frames.tres" id="3_7m5xu"]
 
 [resource]
 script = ExtResource("2_18ivx")
 name = "Chipone Left Arm"
-icon = ExtResource("1_47f1r")
+icon = ExtResource("2_how7y")
 part_sprites = Array[SpriteFrames]([ExtResource("3_7m5xu")])
 fx = ExtResource("1_r3j2a")

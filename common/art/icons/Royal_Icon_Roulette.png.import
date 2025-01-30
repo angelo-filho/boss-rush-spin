@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdyu5cgye8e6y"
-path="res://.godot/imported/ideia_sala.png-8b9e7ef1635d5f7c5ec225974f0ffedb.ctex"
+uid="uid://dgeyeej3wdx23"
+path="res://.godot/imported/Royal_Icon_Roulette.png-54286888c4e73eec9c17c28a229bfa7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/art/sketchs/ideia_sala.png"
-dest_files=["res://.godot/imported/ideia_sala.png-8b9e7ef1635d5f7c5ec225974f0ffedb.ctex"]
+source_file="res://common/art/icons/Royal_Icon_Roulette.png"
+dest_files=["res://.godot/imported/Royal_Icon_Roulette.png-54286888c4e73eec9c17c28a229bfa7c.ctex"]
 
 [params]
 

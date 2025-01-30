@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="WheelPiece" load_steps=3 format=3 uid="uid://cpm62f0a5nnnx"]
 
-[ext_resource type="Texture2D" uid="uid://vo1mi550iffq" path="res://common/art/icons/tiger_icon.png" id="1_0xanl"]
+[ext_resource type="Texture2D" uid="uid://e5hy5nenmaxh" path="res://common/art/icons/tiger_roulette_icon.png" id="1_wmp63"]
 [ext_resource type="Script" path="res://wheel/wheel_piece.gd" id="2_wnej0"]
 
 [resource]
 script = ExtResource("2_wnej0")
 name = "Tiger Right Arm"
-icon = ExtResource("1_0xanl")
+icon = ExtResource("1_wmp63")
+part_sprites = Array[SpriteFrames]([])

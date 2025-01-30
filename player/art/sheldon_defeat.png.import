@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqg76ov4d14h1"
-path="res://.godot/imported/roleta.png-4258f58f00261402e65afcb68e7731bc.ctex"
+uid="uid://chq6kqlleulau"
+path="res://.godot/imported/sheldon_defeat.png-f2d69b43658690eb6cc4baae41c24cce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://roleta.png"
-dest_files=["res://.godot/imported/roleta.png-4258f58f00261402e65afcb68e7731bc.ctex"]
+source_file="res://player/art/sheldon_defeat.png"
+dest_files=["res://.godot/imported/sheldon_defeat.png-f2d69b43658690eb6cc4baae41c24cce.ctex"]
 
 [params]
 

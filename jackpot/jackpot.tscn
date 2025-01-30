@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cwr8cysdmrxet"]
+[gd_scene load_steps=43 format=3 uid="uid://cwr8cysdmrxet"]
 
 [ext_resource type="Script" path="res://jackpot/jackpot.gd" id="1_pda4h"]
 [ext_resource type="Script" path="res://boss/script/boss_fsm.gd" id="6_dafy3"]
@@ -6,18 +6,20 @@
 [ext_resource type="Script" path="res://boss/script/boss_attack_state.gd" id="8_kxou3"]
 [ext_resource type="Script" path="res://jackpot/jackpot_attack_fx.gd" id="9_20ven"]
 [ext_resource type="Script" path="res://common/scripts/health_component/health_component.gd" id="9_ktrv0"]
-[ext_resource type="PackedScene" uid="uid://bi86aas085c8x" path="res://all_chipone/fx/all_chipone_head_attack_fx.tscn" id="10_4rx78"]
 [ext_resource type="Script" path="res://boss/script/boss_health_bar.gd" id="10_in8ix"]
-[ext_resource type="PackedScene" uid="uid://b0g53bt8rx3xd" path="res://royal_chan/fx/royal_head_attack_fx.tscn" id="11_2iopd"]
 [ext_resource type="Script" path="res://boss/script/boss_blink_controller.gd" id="11_kdpa7"]
-[ext_resource type="PackedScene" uid="uid://dvdv2x44bl5rg" path="res://all_chipone/fx/all_chipone_arm_right_attack_fx.tscn" id="12_aa1gj"]
 [ext_resource type="Texture2D" uid="uid://dpvn8rnshrfi2" path="res://player/Angry_Smoke_Circle_Burst_White_v1_A_spritesheet.png" id="12_q4ffa"]
-[ext_resource type="PackedScene" uid="uid://bo0akhmo0dyh0" path="res://royal_chan/fx/royal_right_arm_attack_fx.tscn" id="13_8bsm7"]
 [ext_resource type="Script" path="res://boss/script/warning_controller.gd" id="13_f4xwd"]
 [ext_resource type="Texture2D" uid="uid://dl6olxyi3bt32" path="res://exclamation_spritesheet2.png" id="14_8k1nu"]
-[ext_resource type="PackedScene" uid="uid://cxpxw5qirwc1p" path="res://all_chipone/fx/all_chipone_arm_left_attack_fx.tscn" id="14_sxia3"]
-[ext_resource type="PackedScene" uid="uid://dlas1rah5hkh6" path="res://royal_chan/fx/royal_left_arm_attack_fx.tscn" id="15_1vrun"]
 [ext_resource type="Texture2D" uid="uid://b0jvj7sa2lxl3" path="res://jackpot/jackpot_todinho.png" id="15_xgibe"]
+[ext_resource type="PackedScene" uid="uid://dw3778j8p8khm" path="res://wheel/wheel.tscn" id="20_swn4v"]
+[ext_resource type="Script" path="res://wheel/wheel_piece.gd" id="21_yafcv"]
+[ext_resource type="Resource" uid="uid://cd51mj4o87fnx" path="res://common/data/chipone_left_arm.tres" id="22_rotgx"]
+[ext_resource type="Resource" uid="uid://dm2uw67cvdvec" path="res://common/data/royal_left_arm.tres" id="23_jy0as"]
+[ext_resource type="Resource" uid="uid://driterxd8nc7x" path="res://common/data/chipone_head.tres" id="24_b77wc"]
+[ext_resource type="Resource" uid="uid://bojoqa4lw1dre" path="res://common/data/royal_head_arm.tres" id="25_7otmk"]
+[ext_resource type="Resource" uid="uid://cj3vo1o5xhl6x" path="res://common/data/chipone_right_arm.tres" id="26_0561c"]
+[ext_resource type="Resource" uid="uid://ynkcnl0gbcxa" path="res://common/data/royal_right_arm.tres" id="27_8pc3c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_csltl"]
 radius = 265.002
@@ -185,6 +187,200 @@ anim_speed_max = 1.0
 atlas = ExtResource("14_8k1nu")
 region = Rect2(0, 200, 150, 200)
 
+[sub_resource type="Animation" id="Animation_w5jyk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftArmWheel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.10472]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftArmWheel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 151)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HeadWheel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(588, -71)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HeadWheel:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RightArmWheel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1178, 148)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RightArmWheel:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.190241]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../BodyParts/Body:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_88hcl"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftArmWheel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.10472, 0.0174533, -0.270526, 0.0174533, 0.10472, 0.375246, 0.479966, 0.375246]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftArmWheel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(12, 151), Vector2(-10, 149), Vector2(-57, 155), Vector2(-10, 149), Vector2(12, 151), Vector2(65, 170), Vector2(103, 176), Vector2(65, 170)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HeadWheel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(588, -71), Vector2(471, 18), Vector2(439, 54), Vector2(471, 18), Vector2(588, -71), Vector2(703, 27), Vector2(758, 58), Vector2(703, 27)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HeadWheel:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, -0.15708, -0.644027, -0.15708, 0.0, 0.314159, 0.628319, 0.314159]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RightArmWheel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(1178, 148), Vector2(1126, 168), Vector2(1105, 177), Vector2(1126, 168), Vector2(1178, 148), Vector2(1209, 145), Vector2(1255, 153), Vector2(1209, 145)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RightArmWheel:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [-0.190241, -0.443314, -0.55676, -0.443314, -0.190241, -0.0506145, 0.219911, -0.0506145]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../HitBox/HeadCollider:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(956, 282), Vector2(848, 354), Vector2(801, 384), Vector2(850, 360), Vector2(962, 277), Vector2(1085, 357), Vector2(1148, 384), Vector2(1087, 341)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../BodyParts/Body:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i8s5w"]
+_data = {
+"RESET": SubResource("Animation_w5jyk"),
+"idle": SubResource("Animation_88hcl")
+}
+
 [node name="Jackpot" type="Node2D"]
 script = ExtResource("1_pda4h")
 metadata/_edit_vertical_guides_ = [986.0]
@@ -202,24 +398,26 @@ time_state = 3.5
 script = ExtResource("8_kxou3")
 point = 1
 
-[node name="AttackFX" type="Node2D" parent="FiniteState/HeadAttack"]
+[node name="AttackFX" type="Node2D" parent="FiniteState/HeadAttack" node_paths=PackedStringArray("wheel")]
 script = ExtResource("9_20ven")
-attack_fxs = Array[PackedScene]([ExtResource("10_4rx78"), ExtResource("11_2iopd")])
+wheel = NodePath("../../../WheelController/HeadWheel")
 
 [node name="ArmRightAttack" type="Node2D" parent="FiniteState"]
 script = ExtResource("8_kxou3")
 point = 2
 
-[node name="AttackFX" type="Node2D" parent="FiniteState/ArmRightAttack"]
+[node name="AttackFX" type="Node2D" parent="FiniteState/ArmRightAttack" node_paths=PackedStringArray("wheel")]
 script = ExtResource("9_20ven")
-attack_fxs = Array[PackedScene]([ExtResource("12_aa1gj"), ExtResource("13_8bsm7")])
+wheel = NodePath("../../../WheelController/RightArmWheel")
+body_part = 2
 
 [node name="ArmLeftAttack" type="Node2D" parent="FiniteState"]
 script = ExtResource("8_kxou3")
 
-[node name="AttackFX" type="Node2D" parent="FiniteState/ArmLeftAttack"]
+[node name="AttackFX" type="Node2D" parent="FiniteState/ArmLeftAttack" node_paths=PackedStringArray("wheel")]
 script = ExtResource("9_20ven")
-attack_fxs = Array[PackedScene]([ExtResource("14_sxia3"), ExtResource("15_1vrun")])
+wheel = NodePath("../../../WheelController/LeftArmWheel")
+body_part = 1
 
 [node name="HitBox" type="Area2D" parent="."]
 z_index = 1
@@ -317,3 +515,40 @@ position = Vector2(986, 387)
 
 [node name="LeftPoint" type="Marker2D" parent="WarningController/Points"]
 position = Vector2(319, 387)
+
+[node name="WheelController" type="Node2D" parent="."]
+
+[node name="LeftArmWheel" parent="WheelController" instance=ExtResource("20_swn4v")]
+offset_left = 12.0
+offset_top = 151.0
+offset_right = 12.0
+offset_bottom = 151.0
+rotation = 0.10472
+scale = Vector2(0.38, 0.38)
+pieces = Array[ExtResource("21_yafcv")]([ExtResource("22_rotgx"), ExtResource("23_jy0as"), ExtResource("22_rotgx"), ExtResource("23_jy0as")])
+spin_duration = 2.0
+
+[node name="HeadWheel" parent="WheelController" instance=ExtResource("20_swn4v")]
+offset_left = 588.0
+offset_top = -71.0
+offset_right = 588.0
+offset_bottom = -71.0
+scale = Vector2(0.58, 0.58)
+pieces = Array[ExtResource("21_yafcv")]([ExtResource("24_b77wc"), ExtResource("25_7otmk"), ExtResource("24_b77wc"), ExtResource("25_7otmk")])
+spin_duration = 2.0
+
+[node name="RightArmWheel" parent="WheelController" instance=ExtResource("20_swn4v")]
+offset_left = 1178.0
+offset_top = 148.0
+offset_right = 1178.0
+offset_bottom = 148.0
+rotation = -0.190241
+scale = Vector2(0.38, 0.38)
+pieces = Array[ExtResource("21_yafcv")]([ExtResource("26_0561c"), ExtResource("27_8pc3c"), ExtResource("26_0561c"), ExtResource("27_8pc3c")])
+spin_duration = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WheelController"]
+libraries = {
+"": SubResource("AnimationLibrary_i8s5w")
+}
+autoplay = "idle"
