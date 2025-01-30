@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b12sls05ck2tt"]
+[gd_scene load_steps=3 format=3 uid="uid://c3c75wp3h8d5w"]
 
 [ext_resource type="Script" path="res://controlTextDialog.gd" id="1_tjt0b"]
 [ext_resource type="FontFile" uid="uid://c4a2tpdbv1u67" path="res://common/fonts/Cardigan Titling Rg.otf" id="2_ruj5p"]

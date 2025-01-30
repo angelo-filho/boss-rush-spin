@@ -24,7 +24,7 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("advance_dialog"):
 		if typing:
-			label.text = current_text
+			label.visible_characters = -1
 			typing = false
 			timer.stop()
 		else:
