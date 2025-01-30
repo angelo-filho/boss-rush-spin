@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b12sls05ck2tt"]
+
+[ext_resource type="Script" path="res://controlTextDialog.gd" id="1_tjt0b"]
+[ext_resource type="FontFile" uid="uid://c4a2tpdbv1u67" path="res://common/fonts/Cardigan Titling Rg.otf" id="2_ruj5p"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_tjt0b")
+
+[node name="TextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 131.0
+offset_right = 1736.0
+offset_bottom = 983.0
+theme_override_fonts/normal_font = ExtResource("2_ruj5p")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "eqeqwrfqfasdasdsad"
+
+[node name="Timer" type="Timer" parent="."]
