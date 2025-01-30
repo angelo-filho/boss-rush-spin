@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnpod3vwhe040"]
-
-[ext_resource type="Texture2D" uid="uid://d2orntju2g21d" path="res://common/art/icons/chipone_icon.png" id="1_fghj4"]
+[gd_scene format=3 uid="uid://dnpod3vwhe040"]
 
 [node name="WheelPieceIcon" type="TextureRect"]
 texture_filter = 1
@@ -9,4 +7,3 @@ offset_top = 206.0
 offset_right = -275.0
 offset_bottom = 334.0
 pivot_offset = Vector2(64, 64)
-texture = ExtResource("1_fghj4")

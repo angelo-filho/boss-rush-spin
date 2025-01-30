@@ -21,6 +21,7 @@ func _ready() -> void:
 
 
 func hide_wheels():
+	hide()
 	hide_wheel(left_arm_wheel)
 	hide_wheel(right_arm_wheel)
 	hide_wheel(head_wheel)
@@ -39,6 +40,8 @@ func _on_right_wheel_spin_end(piece: WheelPiece):
 
 func _on_head_wheel_spin_end(piece: WheelPiece):
 	boss_data.head = piece
+	
+	await get_tree().create_timer(5.0).timeout
 	
 	boss.setup(boss_data)
 	

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk4jfdoc0wtcw"
-path="res://.godot/imported/All_Chiponne_Idle.png-127d7fd42e341cc1e93354006f094ab1.ctex"
+uid="uid://dk1hq621t6482"
+path="res://.godot/imported/AllChip_Icon_Roulette.png-8a104c9cc572d85d7b272408755f0d00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/art/sketchs/All_Chiponne_Idle.png"
-dest_files=["res://.godot/imported/All_Chiponne_Idle.png-127d7fd42e341cc1e93354006f094ab1.ctex"]
+source_file="res://common/art/icons/AllChip_Icon_Roulette.png"
+dest_files=["res://.godot/imported/AllChip_Icon_Roulette.png-8a104c9cc572d85d7b272408755f0d00.ctex"]
 
 [params]
 

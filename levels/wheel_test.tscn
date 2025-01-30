@@ -18,26 +18,26 @@ size_flags_vertical = 3
 
 [node name="Wheel" parent="CanvasLayer/Control" instance=ExtResource("1_qwuth")]
 layout_mode = 1
-offset_left = 108.0
+offset_left = 6.00002
 offset_top = 242.0
-offset_right = -1069.0
+offset_right = -1171.0
 offset_bottom = -102.0
 scale = Vector2(0.75, 0.75)
 
 [node name="Wheel2" parent="CanvasLayer/Control" instance=ExtResource("1_qwuth")]
 layout_mode = 1
-offset_left = 719.0
+offset_left = 625.0
 offset_top = 266.0
-offset_right = -458.0
+offset_right = -552.0
 offset_bottom = -78.0
 scale = Vector2(0.75, 0.75)
 
 [node name="Wheel3" parent="CanvasLayer/Control" instance=ExtResource("1_qwuth")]
 layout_mode = 1
-offset_left = 1332.0
-offset_top = 279.0
-offset_right = 155.0
-offset_bottom = -65.0
+offset_left = 1222.0
+offset_top = 271.0
+offset_right = 45.0
+offset_bottom = -73.0
 scale = Vector2(0.75, 0.75)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]

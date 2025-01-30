@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vo1mi550iffq"
-path="res://.godot/imported/tiger_icon.png-3347be5616cd782037a083ed4b301e56.ctex"
+uid="uid://2pik0cw3fs46"
+path="res://.godot/imported/sheldon_punch_2_motion.png-b45bda959206c3525cdef2df14762db7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/art/icons/tiger_icon.png"
-dest_files=["res://.godot/imported/tiger_icon.png-3347be5616cd782037a083ed4b301e56.ctex"]
+source_file="res://player/art/sheldon_punch_2_motion.png"
+dest_files=["res://.godot/imported/sheldon_punch_2_motion.png-b45bda959206c3525cdef2df14762db7.ctex"]
 
 [params]
 

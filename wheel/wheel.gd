@@ -11,6 +11,8 @@ signal spin_end(piece: WheelPiece)
 @export var wheel_piece_icon_scene: PackedScene
 
 @onready var wheel_sound: AudioStreamPlayer = $WheelSound
+@onready var animation_player: AnimationPlayer = $WheelPicker/Pointer/AnimationPlayer
+@onready var pointer: TextureRect = $WheelPicker/Pointer
 
 var piece_angle: float
 var half_piece_angle: float
@@ -19,6 +21,8 @@ var is_spinning: bool
 var prev_angle: float
 var current_angle: float
 var is_indicator_on_the_line: bool
+
+var pointer_tween: Tween
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,7 +34,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if OS.is_debug_build() and not is_spinning and Input.is_action_just_pressed("jump"):
+	if OS.is_debug_build() and not is_spinning and Input.is_action_just_pressed("ui_accept"):
 		spin()
 
 
@@ -92,6 +96,7 @@ func spin():
 		
 		if diff >= half_piece_angle:
 			if is_indicator_on_the_line:
+				animated_pointer()
 				wheel_sound.play()
 			
 			prev_angle = current_angle
@@ -101,6 +106,16 @@ func spin():
 		, wheel.rotation_degrees, target_rotation, spin_duration)
 	
 	tween.finished.connect(func(): _on_spin_finished(index))
+
+
+func animated_pointer():
+	if pointer_tween:
+		pointer_tween.kill()
+	
+	pointer_tween = create_tween()
+
+	pointer_tween.tween_property(pointer, "rotation_degrees", 202, 0.05)
+	pointer_tween.tween_property(pointer, "rotation_degrees", 180, 0.05)
 
 
 func _on_spin_finished(piece_index: int):

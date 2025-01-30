@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2orntju2g21d"
-path="res://.godot/imported/chipone_icon.png-5a005d0f117672c564619d983a24a08a.ctex"
+uid="uid://3l5pwrm2dh2w"
+path="res://.godot/imported/roulette_nua.png-ff68acd9e8b24a42ab37c0bd594d01f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/art/icons/chipone_icon.png"
-dest_files=["res://.godot/imported/chipone_icon.png-5a005d0f117672c564619d983a24a08a.ctex"]
+source_file="res://wheel/roulette_nua.png"
+dest_files=["res://.godot/imported/roulette_nua.png-ff68acd9e8b24a42ab37c0bd594d01f9.ctex"]
 
 [params]
 
