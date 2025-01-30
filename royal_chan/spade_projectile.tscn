@@ -8,6 +8,7 @@
 radius = 299.06
 
 [node name="SpadeProjectile" type="Node2D"]
+z_index = 1
 script = ExtResource("1_8t0re")
 speed = 1400.0
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cwr8cysdmrxet"]
+[gd_scene load_steps=40 format=3 uid="uid://cwr8cysdmrxet"]
 
 [ext_resource type="Script" path="res://jackpot/jackpot.gd" id="1_pda4h"]
 [ext_resource type="Script" path="res://boss/script/boss_fsm.gd" id="6_dafy3"]
@@ -27,69 +27,6 @@ radius = 265.002
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grs8v"]
 radius = 67.0001
 height = 410.0
-
-[sub_resource type="Animation" id="Animation_xt3av"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HitBox/HeadCollider:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(956, 282)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BodyParts/Body:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_58i06"]
-resource_name = "idle"
-length = 1.00001
-loop_mode = 1
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HitBox/HeadCollider:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(956, 282), Vector2(848, 354), Vector2(801, 384), Vector2(850, 360), Vector2(962, 277), Vector2(1085, 357), Vector2(1148, 384), Vector2(1087, 341)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BodyParts/Body:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_i68re"]
-_data = {
-"RESET": SubResource("Animation_xt3av"),
-"idle": SubResource("Animation_58i06")
-}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86d1s"]
 bg_color = Color(0.6, 0.6, 0.6, 0.301961)
@@ -246,7 +183,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../BodyParts/Body:frame")
+tracks/6/path = NodePath("../Body:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -254,6 +191,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../HitBox/HeadCollider:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(956, 282)]
 }
 
 [sub_resource type="Animation" id="Animation_88hcl"]
@@ -335,26 +284,26 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../HitBox/HeadCollider:position")
+tracks/6/path = NodePath("../Body:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(956, 282), Vector2(848, 354), Vector2(801, 384), Vector2(850, 360), Vector2(962, 277), Vector2(1085, 357), Vector2(1148, 384), Vector2(1087, 341)]
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../BodyParts/Body:frame")
+tracks/7/path = NodePath("../../HitBox/HeadCollider:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
+"values": [Vector2(956, 282), Vector2(848, 354), Vector2(801, 384), Vector2(850, 360), Vector2(962, 277), Vector2(1085, 357), Vector2(1148, 384), Vector2(1087, 341)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i8s5w"]
@@ -438,15 +387,9 @@ position = Vector2(316, 777)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_grs8v")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_i68re")
-}
-autoplay = "idle"
-
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("9_ktrv0")
-max_health = 50.0
+max_health = 1000.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -484,6 +427,7 @@ script = ExtResource("10_in8ix")
 script = ExtResource("11_kdpa7")
 
 [node name="BodyParts" type="Node2D" parent="."]
+z_index = -1
 
 [node name="Body" type="AnimatedSprite2D" parent="BodyParts"]
 sprite_frames = SubResource("SpriteFrames_5hnf3")
@@ -531,6 +475,7 @@ z_index = 1
 material = SubResource("CanvasItemMaterial_a6gsx")
 position = Vector2(986, 456)
 scale = Vector2(1.07589, 0.978808)
+emitting = false
 process_material = SubResource("ParticleProcessMaterial_bflpf")
 texture = ExtResource("12_q4ffa")
 randomness = 1.0
