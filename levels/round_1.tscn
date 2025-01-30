@@ -1,12 +1,12 @@
-[gd_scene load_steps=43 format=3 uid="uid://c8i4wmp505iuw"]
+[gd_scene load_steps=46 format=3 uid="uid://c8i4wmp505iuw"]
 
 [ext_resource type="Script" path="res://levels/main.gd" id="1_jrymy"]
 [ext_resource type="PackedScene" uid="uid://t462ol02sj2b" path="res://player/player.tscn" id="2_5y3bv"]
-[ext_resource type="Texture2D" uid="uid://cha1lq6my42vd" path="res://all_chipone/art/placeholder_sala.png" id="3_38bxr"]
+[ext_resource type="Texture2D" uid="uid://8urjgtsuw3ei" path="res://common/art/scenario/Floating_plat_2.png" id="4_bdrta"]
 [ext_resource type="Shader" path="res://common/shaders/CTR.gdshader" id="4_l5pmr"]
 [ext_resource type="Shader" path="res://common/shaders/circle_fade.gdshader" id="5_0x51n"]
 [ext_resource type="AudioStream" uid="uid://b0g1geq4sfsml" path="res://common/shaders/Drop Point.mp3" id="6_g5p33"]
-[ext_resource type="Texture2D" uid="uid://cy03skdjgem7s" path="res://common/art/background.png" id="7_lodpr"]
+[ext_resource type="Texture2D" uid="uid://cy03skdjgem7s" path="res://common/art/scenario/background.png" id="7_lodpr"]
 [ext_resource type="PackedScene" uid="uid://dw3778j8p8khm" path="res://wheel/wheel.tscn" id="9_efcre"]
 [ext_resource type="Script" path="res://wheel/wheel_controller.gd" id="9_iuol4"]
 [ext_resource type="Script" path="res://wheel/wheel_piece.gd" id="10_gv0nj"]
@@ -18,18 +18,10 @@
 [ext_resource type="Resource" uid="uid://ynkcnl0gbcxa" path="res://common/data/royal_right_arm.tres" id="16_fsl2d"]
 [ext_resource type="Texture2D" uid="uid://b0jvj7sa2lxl3" path="res://jackpot/jackpot_todinho.png" id="17_04gg1"]
 [ext_resource type="PackedScene" uid="uid://bfaxr7fpoeug3" path="res://boss/boss.tscn" id="17_cu4we"]
-[ext_resource type="PackedScene" uid="uid://c5rswpvnl0vl3" path="res://pause_menu.tscn" id="18_xgkcq"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0josx"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnmae"]
-size = Vector2(286, 20)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yrdai"]
-normal = Vector2(1, 0)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w114c"]
-normal = Vector2(-1, 0)
+[ext_resource type="PackedScene" uid="uid://bsor6rgjtxg1r" path="res://pause_menu.tscn" id="18_xgkcq"]
+[ext_resource type="Texture2D" uid="uid://bh7vs4dppespj" path="res://common/art/scenario/big_plat_1.png" id="20_tgxe2"]
+[ext_resource type="Texture2D" uid="uid://ccvp5u1qalhq2" path="res://common/art/scenario/big_plat_2.png" id="21_ivsld"]
+[ext_resource type="Texture2D" uid="uid://euvtejtkrue8" path="res://common/art/scenario/big_plat_3.png" id="22_1x7ng"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_26j2x"]
 shader = ExtResource("4_l5pmr")
@@ -354,49 +346,23 @@ _data = {
 "idle": SubResource("Animation_88hcl")
 }
 
-[node name="Round1" type="Node2D"]
-position = Vector2(-3, 0)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0josx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnmae"]
+size = Vector2(309, 31)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yrdai"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w114c"]
+normal = Vector2(-1, 0)
+
+[node name="Round1" type="Node2D" node_paths=PackedStringArray("pause_menu")]
 script = ExtResource("1_jrymy")
+pause_menu = NodePath("CanvasLayer2/PauseMenu")
 
 [node name="Player" parent="." instance=ExtResource("2_5y3bv")]
 position = Vector2(930, 448)
-
-[node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(0, 850)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-shape = SubResource("WorldBoundaryShape2D_0josx")
-
-[node name="IdeiaSala" type="Sprite2D" parent="."]
-z_index = -2
-texture = ExtResource("3_38bxr")
-centered = false
-
-[node name="Platform" type="StaticBody2D" parent="."]
-position = Vector2(303, 572)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(150, 14.5)
-shape = SubResource("RectangleShape2D_pnmae")
-one_way_collision = true
-
-[node name="Platform2" type="StaticBody2D" parent="."]
-position = Vector2(1321, 572)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
-position = Vector2(150, 14.5)
-shape = SubResource("RectangleShape2D_pnmae")
-one_way_collision = true
-
-[node name="Walls" type="StaticBody2D" parent="."]
-
-[node name="Left" type="CollisionShape2D" parent="Walls"]
-position = Vector2(92, 774)
-shape = SubResource("WorldBoundaryShape2D_yrdai")
-
-[node name="Right" type="CollisionShape2D" parent="Walls"]
-position = Vector2(1829, 774)
-shape = SubResource("WorldBoundaryShape2D_w114c")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -419,7 +385,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.997673, 1)
 
 [node name="Control2" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -440,7 +405,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.997673, 1)
 color = Color(0.00464652, 0.0518423, 0.0464854, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control2/Circle"]
@@ -455,8 +419,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="Background" type="Sprite2D" parent="."]
-visible = false
-z_index = -2
+z_index = -4
 texture = ExtResource("7_lodpr")
 centered = false
 
@@ -506,11 +469,67 @@ autoplay = "idle"
 
 [node name="BossBase" parent="." instance=ExtResource("17_cu4we")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("18_xgkcq")]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("18_xgkcq")]
 visible = false
 z_index = 2
-offset_left = 539.0
-offset_top = 161.0
-offset_right = 539.0
-offset_bottom = 161.0
-metadata/_edit_use_anchors_ = true
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="GroundCollider" type="StaticBody2D" parent="Ground"]
+position = Vector2(0, 850)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/GroundCollider"]
+shape = SubResource("WorldBoundaryShape2D_0josx")
+
+[node name="BigPlat1" type="Sprite2D" parent="Ground"]
+z_index = -3
+position = Vector2(1, 0)
+texture = ExtResource("20_tgxe2")
+centered = false
+
+[node name="BigPlat2" type="Sprite2D" parent="Ground"]
+texture = ExtResource("21_ivsld")
+centered = false
+
+[node name="BigPlat3" type="Sprite2D" parent="Ground"]
+z_index = -3
+texture = ExtResource("22_1x7ng")
+centered = false
+
+[node name="ScenarioColliders" type="Node2D" parent="."]
+
+[node name="Platform" type="StaticBody2D" parent="ScenarioColliders"]
+position = Vector2(303, 572)
+
+[node name="FloatingPlat2" type="Sprite2D" parent="ScenarioColliders/Platform"]
+position = Vector2(150.5, 14.5)
+texture = ExtResource("4_bdrta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScenarioColliders/Platform"]
+position = Vector2(150.5, 15.5)
+shape = SubResource("RectangleShape2D_pnmae")
+one_way_collision = true
+
+[node name="Platform2" type="StaticBody2D" parent="ScenarioColliders"]
+position = Vector2(1321, 572)
+
+[node name="FloatingPlat3" type="Sprite2D" parent="ScenarioColliders/Platform2"]
+position = Vector2(150, 15)
+texture = ExtResource("4_bdrta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScenarioColliders/Platform2"]
+position = Vector2(150, 14.5)
+shape = SubResource("RectangleShape2D_pnmae")
+one_way_collision = true
+
+[node name="Walls" type="StaticBody2D" parent="ScenarioColliders"]
+
+[node name="Left" type="CollisionShape2D" parent="ScenarioColliders/Walls"]
+position = Vector2(92, 774)
+shape = SubResource("WorldBoundaryShape2D_yrdai")
+
+[node name="Right" type="CollisionShape2D" parent="ScenarioColliders/Walls"]
+position = Vector2(1829, 774)
+shape = SubResource("WorldBoundaryShape2D_w114c")

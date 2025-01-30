@@ -41,7 +41,7 @@ func _on_right_wheel_spin_end(piece: WheelPiece):
 func _on_head_wheel_spin_end(piece: WheelPiece):
 	boss_data.head = piece
 	
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	
 	boss.setup(boss_data)
 	

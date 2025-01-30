@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://common/scripts/player_test/player_test.gd" id="1_3bvdb"]
 [ext_resource type="PackedScene" uid="uid://t462ol02sj2b" path="res://player/player.tscn" id="2_gpe8n"]
 [ext_resource type="Texture2D" uid="uid://cha1lq6my42vd" path="res://all_chipone/art/placeholder_sala.png" id="3_u2iqf"]
-[ext_resource type="Texture2D" uid="uid://cy03skdjgem7s" path="res://common/art/background.png" id="7_2p0ha"]
+[ext_resource type="Texture2D" uid="uid://cy03skdjgem7s" path="res://common/art/scenario/background.png" id="7_2p0ha"]
 [ext_resource type="Shader" path="res://common/shaders/CTR.gdshader" id="14_qw2k2"]
 [ext_resource type="Shader" path="res://common/shaders/circle_fade.gdshader" id="15_5sgti"]
 [ext_resource type="AudioStream" uid="uid://b0g1geq4sfsml" path="res://common/shaders/Drop Point.mp3" id="16_ag2ol"]
