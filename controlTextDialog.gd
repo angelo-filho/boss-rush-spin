@@ -11,7 +11,6 @@ var texts = [
 
 var text_index = 0
 var current_text = ""
-var shown_characters = 0
 var typing = false
 
 @export var typing_speed: float = 0.05
@@ -20,7 +19,7 @@ var typing = false
 func _ready():
 	timer.wait_time = typing_speed
 	timer.timeout.connect(_show_next_character)
-	start_typing() # Starts the first text
+	start_typing()
 
 func _input(event):
 	if event.is_action_pressed("advance_dialog"):
@@ -36,16 +35,14 @@ func start_typing():
 		_change_to_next_scene()
 		return
 
-	current_text = texts[text_index]
-	shown_characters = 0
-	label.text = ""
+	label.text = texts[text_index]
+	label.visible_characters = 0
 	typing = true
 	timer.start()
 
 func _show_next_character():
-	if shown_characters < current_text.length():
-		label.text += current_text[shown_characters]
-		shown_characters += 1
+	if label.visible_characters < label.text.length():
+		label.visible_characters += 1
 	else:
 		timer.stop()
 		typing = false
