@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://dvdv2x44bl5rg"]
+[gd_scene load_steps=29 format=3 uid="uid://dvdv2x44bl5rg"]
 
 [ext_resource type="Script" path="res://boss/script/animation_attack_fx.gd" id="1_6v7p4"]
 [ext_resource type="Script" path="res://common/scripts/hurt_box/hurt_box.gd" id="2_aj0ji"]
 [ext_resource type="Texture2D" uid="uid://cro2fdo13fyal" path="res://all_chipone/art/attk_All_Chiponne_1.png" id="2_wnl4g"]
 [ext_resource type="AudioStream" uid="uid://340ptflm4nhg" path="res://all_chipone/SFXs/ChipsPoker.wav" id="3_ibll4"]
 [ext_resource type="AudioStream" uid="uid://px36jg6tiw73" path="res://all_chipone/SFXs/ChipsDrag.wav" id="3_tvev5"]
+[ext_resource type="PackedScene" uid="uid://j4hw0oo2wk4i" path="res://shaker_component/camera_shaker.tscn" id="6_h0f7f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bixm8"]
 size = Vector2(300, 322)
@@ -184,6 +185,20 @@ tracks/6/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CameraShaker")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [6.0, 0.5],
+"method": &"do_shake"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ahcca"]
 _data = {
@@ -352,3 +367,5 @@ bus = &"SFX"
 [node name="ChipsHitGround" type="AudioStreamPlayer" parent="SFXs"]
 stream = ExtResource("3_ibll4")
 bus = &"SFX"
+
+[node name="CameraShaker" parent="." instance=ExtResource("6_h0f7f")]
