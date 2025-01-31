@@ -63,5 +63,6 @@ func jump():
 
 
 func _on_damage_received():
+	Camera.shake(5.0, 0.4)
 	animation_controller.play_blink()
 	$SFXs/Damage.play()

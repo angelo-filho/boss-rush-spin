@@ -44,7 +44,8 @@ func spawn_spades():
 		spade.global_position.y = -400
 		
 		get_tree().current_scene.add_child(spade)
-		
+	
+	Camera.shake(10.0, 2.0)
 
 
 func wait_to_attack():
