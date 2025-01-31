@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bfaxr7fpoeug3"]
+[gd_scene load_steps=25 format=3 uid="uid://bfaxr7fpoeug3"]
 
 [ext_resource type="Script" path="res://boss/script/boss.gd" id="1_yay22"]
 [ext_resource type="Script" path="res://boss/script/boss_idle.gd" id="2_dyrbb"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://boss/script/boss_blink_controller.gd" id="11_5kpl5"]
 [ext_resource type="Texture2D" uid="uid://dpvn8rnshrfi2" path="res://player/Angry_Smoke_Circle_Burst_White_v1_A_spritesheet.png" id="12_bquv3"]
 [ext_resource type="Script" path="res://boss/script/warning_controller.gd" id="13_lqi7d"]
-[ext_resource type="Texture2D" uid="uid://dl6olxyi3bt32" path="res://exclamation_spritesheet2.png" id="14_2dgjn"]
+[ext_resource type="Texture2D" uid="uid://c4eklxdll8hjh" path="res://common/art/2_exlamation.webp" id="14_u3fcf"]
 
 [sub_resource type="Resource" id="Resource_ss610"]
 script = ExtResource("5_5vc3k")
@@ -191,10 +191,6 @@ gravity = Vector3(0, 0, 0)
 anim_speed_min = 1.0
 anim_speed_max = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h0on6"]
-atlas = ExtResource("14_2dgjn")
-region = Rect2(0, 200, 150, 200)
-
 [node name="BossBase" type="Node2D"]
 script = ExtResource("1_yay22")
 boss_data = SubResource("Resource_ss610")
@@ -315,7 +311,7 @@ script = ExtResource("13_lqi7d")
 
 [node name="Warning" type="Sprite2D" parent="WarningController"]
 position = Vector2(1601, 387)
-texture = SubResource("AtlasTexture_h0on6")
+texture = ExtResource("14_u3fcf")
 
 [node name="Points" type="Node2D" parent="WarningController"]
 
