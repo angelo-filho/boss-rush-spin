@@ -2,14 +2,26 @@ extends Control
 
 @onready var label = $TextLabel
 @onready var timer = $Timer
+@onready var image_display: TextureRect = $ImageTexture
+@onready var color_rect: ColorRect = $ColorRect
 
 var texts = [
-	"This is the first text being typed...",
-	"Now we have a new text on the screen...",
-	"[shake rate=20.0 level=5 connected=1]That's it! Moving to the next level...[/shake]"
+	"Aren’t you tired of [shake rate=40.0 level=10 connected=1]losing?[/shake]",
+	"How about a game?",
+	"You have nothing left to lose…"
 ]
 
+var images = [
+	"res://intro Images/first_screen.png",
+	"res://intro Images/intro_screen_2.png",
+	"res://intro Images/intro_screen_3.png",
+	"res://intro Images/intro_screen_4_melhor.png",
+	"res://intro Images/intro_screen_5.png"
+]
+
+var image_index = 0
 var text_index = 0
+var showing_images = true
 var current_text = ""
 var typing = false
 
@@ -17,18 +29,41 @@ var typing = false
 @export var next_scene: String = "res://levels/round_1.tscn"
 
 func _ready():
+	color_rect.visible = false
+	label.visible = false
 	timer.wait_time = typing_speed
 	timer.timeout.connect(_show_next_character)
-	start_typing()
+	show_image()
 
 func _input(event):
 	if event.is_action_pressed("advance_dialog"):
-		if typing:
+		if showing_images:
+			advance_image()
+		elif typing:
 			label.visible_characters = -1
 			typing = false
 			timer.stop()
 		else:
 			advance_text()
+
+func show_image():
+	if image_index < images.size():
+		var texture = load(images[image_index])
+		if texture:
+			image_display.texture = texture
+		else:
+			print("Erro ao carregar imagem: ", images[image_index])
+
+func advance_image():
+	if image_index < images.size() - 1:
+		image_index += 1
+		show_image()
+	else:
+		image_display.visible = false  
+		showing_images = false
+		color_rect.visible = true
+		label.visible = true
+		start_typing()
 
 func start_typing():
 	if text_index >= texts.size():
