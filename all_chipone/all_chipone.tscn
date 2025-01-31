@@ -1,0 +1,39 @@
+[gd_scene load_steps=10 format=3 uid="uid://bytjqr2fjeujd"]
+
+[ext_resource type="PackedScene" uid="uid://bfaxr7fpoeug3" path="res://boss/boss.tscn" id="1_fg1eb"]
+[ext_resource type="PackedScene" uid="uid://bi86aas085c8x" path="res://all_chipone/fx/all_chipone_head_attack_fx.tscn" id="2_mlh27"]
+[ext_resource type="PackedScene" uid="uid://dvdv2x44bl5rg" path="res://all_chipone/fx/all_chipone_arm_right_attack_fx.tscn" id="3_fgrdj"]
+[ext_resource type="PackedScene" uid="uid://cxpxw5qirwc1p" path="res://all_chipone/fx/all_chipone_arm_left_attack_fx.tscn" id="4_uyndl"]
+[ext_resource type="SpriteFrames" uid="uid://3pv6b5hmbpyn" path="res://all_chipone/frames/all_chipone_torso_frames.tres" id="5_kvihv"]
+[ext_resource type="SpriteFrames" uid="uid://bfdmmhh2buhn1" path="res://all_chipone/frames/all_chipone_left_arm_frames.tres" id="6_qm7ql"]
+[ext_resource type="SpriteFrames" uid="uid://c11tlbafr4u6k" path="res://all_chipone/frames/all_chipone_right_arm_frames.tres" id="7_hhbem"]
+[ext_resource type="SpriteFrames" uid="uid://cbkc2r7mkfs8t" path="res://all_chipone/frames/all_chipone_head_frames.tres" id="8_hpqja"]
+[ext_resource type="Texture2D" uid="uid://cha1lq6my42vd" path="res://all_chipone/art/placeholder_sala.png" id="10_tma1f"]
+
+[node name="AllChipone" instance=ExtResource("1_fg1eb")]
+
+[node name="HeadAttackFX" parent="FiniteState/HeadAttack" index="0" instance=ExtResource("2_mlh27")]
+
+[node name="ArmRightAttackFX" parent="FiniteState/ArmRightAttack" index="0" instance=ExtResource("3_fgrdj")]
+
+[node name="ArmLeftAttackFX" parent="FiniteState/ArmLeftAttack" index="0" instance=ExtResource("4_uyndl")]
+
+[node name="Torso" parent="BodyParts" index="0"]
+z_index = -2
+sprite_frames = ExtResource("5_kvihv")
+
+[node name="LeftArm" parent="BodyParts" index="1"]
+z_index = -1
+sprite_frames = ExtResource("6_qm7ql")
+
+[node name="RightArm" parent="BodyParts" index="2"]
+z_index = -1
+sprite_frames = ExtResource("7_hhbem")
+
+[node name="Head" parent="BodyParts" index="3"]
+sprite_frames = ExtResource("8_hpqja")
+
+[node name="PlaceholderSala" type="Sprite2D" parent="." index="5"]
+z_index = -3
+texture = ExtResource("10_tma1f")
+centered = false

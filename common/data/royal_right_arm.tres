@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WheelPiece" load_steps=5 format=3 uid="uid://ynkcnl0gbcxa"]
+
+[ext_resource type="PackedScene" uid="uid://bo0akhmo0dyh0" path="res://royal_chan/fx/royal_right_arm_attack_fx.tscn" id="1_d6ruh"]
+[ext_resource type="Texture2D" uid="uid://dgeyeej3wdx23" path="res://common/art/icons/Royal_Icon_Roulette.png" id="2_h3mbi"]
+[ext_resource type="SpriteFrames" uid="uid://csbkbgmox1i5c" path="res://royal_chan/frames/royal_right_arm_frames.tres" id="3_gdeuj"]
+[ext_resource type="Script" path="res://wheel/wheel_piece.gd" id="4_6ubnp"]
+
+[resource]
+script = ExtResource("4_6ubnp")
+name = "Royal Head"
+icon = ExtResource("2_h3mbi")
+part_sprites = Array[SpriteFrames]([ExtResource("3_gdeuj")])
+fx = ExtResource("1_d6ruh")

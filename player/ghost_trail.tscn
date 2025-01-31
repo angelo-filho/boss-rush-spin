@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://c00ilg1dj1s7h"]
+
+[ext_resource type="Texture2D" uid="uid://dcly1nd8tq4rr" path="res://player/art/Sheldon_Punch_Color.png" id="1_ndasf"]
+
+[sub_resource type="Animation" id="Animation_8spt5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4aegr"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.56, 0.0728, 0.08904, 1), Color(1, 0.325333, 0.12, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wwrn2"]
+_data = {
+"RESET": SubResource("Animation_8spt5"),
+"fade_out": SubResource("Animation_4aegr")
+}
+
+[node name="GhostTrail" type="Sprite2D"]
+texture = ExtResource("1_ndasf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wwrn2")
+}
+autoplay = "fade_out"

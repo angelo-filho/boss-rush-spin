@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://dw3778j8p8khm"]
+
+[ext_resource type="Script" path="res://wheel/wheel.gd" id="1_x7boi"]
+[ext_resource type="Texture2D" uid="uid://bo7pjn3scod8u" path="res://icon.svg" id="2_bsont"]
+[ext_resource type="Texture2D" uid="uid://cqg76ov4d14h1" path="res://roleta.png" id="3_ps650"]
+[ext_resource type="Texture2D" uid="uid://bacb7vajmqk8h" path="res://traingle.png" id="4_8ad3j"]
+[ext_resource type="AudioStream" uid="uid://ctmnpfk6e42lp" path="res://wheel/wheel_sound.ogg" id="5_ri37l"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ykbhi"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("5_ri37l")
+
+[node name="Wheel" type="Control" node_paths=PackedStringArray("pieces", "wheel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1177.0
+offset_bottom = -344.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_x7boi")
+tex = ExtResource("2_bsont")
+pieces = [NodePath("TextureRect"), NodePath("TextureRect2"), NodePath("TextureRect3")]
+wheel = NodePath("WheelPicker/WheelBg")
+angle_offset = -90.0
+spin_duration = 5.0
+
+[node name="WheelPicker" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 736.0
+offset_bottom = 736.0
+pivot_offset = Vector2(368, 368)
+
+[node name="WheelBg" type="TextureRect" parent="WheelPicker"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(368, 368)
+texture = ExtResource("3_ps650")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="WheelPicker"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_right = 40.0
+offset_bottom = 80.0
+grow_horizontal = 2
+rotation = 3.14159
+pivot_offset = Vector2(40, 40)
+texture = ExtResource("4_8ad3j")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 0.2, 1, 1)
+layout_mode = 0
+offset_left = -325.0
+offset_top = 374.0
+offset_right = -197.0
+offset_bottom = 502.0
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_bsont")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -766.0
+offset_top = 231.0
+offset_right = -638.0
+offset_bottom = 359.0
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_bsont")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 0
+offset_left = -435.0
+offset_top = 608.0
+offset_right = -307.0
+offset_bottom = 736.0
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_bsont")
+
+[node name="WheelSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_ykbhi")
+max_polyphony = 20

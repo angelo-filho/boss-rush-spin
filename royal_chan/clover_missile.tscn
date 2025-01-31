@@ -1,0 +1,140 @@
+[gd_scene load_steps=15 format=3 uid="uid://cc7a24h6eqelr"]
+
+[ext_resource type="Script" path="res://royal_chan/scripts/clover/clover_missile.gd" id="1_sv2qr"]
+[ext_resource type="Texture2D" uid="uid://c5q6inirj8dqm" path="res://royal_chan/arts/clover_projectile.png" id="2_w8hmj"]
+[ext_resource type="Script" path="res://royal_chan/scripts/clover/clover_fsm.gd" id="3_7hlci"]
+[ext_resource type="Script" path="res://common/scripts/hurt_box/one_time_hurt_box.gd" id="3_fxhyt"]
+[ext_resource type="Script" path="res://royal_chan/scripts/clover/clover_appear_state.gd" id="4_v1uws"]
+[ext_resource type="Script" path="res://royal_chan/scripts/clover/clover_attack_state.gd" id="5_qfiba"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nsxim"]
+radius = 42.0119
+
+[sub_resource type="Curve" id="Curve_e1inu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_up678"]
+curve = SubResource("Curve_e1inu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yccgl"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 35.24
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 43.16
+initial_velocity_max = 100.72
+gravity = Vector3(0, 98, 0)
+alpha_curve = SubResource("CurveTexture_up678")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_13ipf"]
+
+[sub_resource type="Animation" id="Animation_77ywx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CreateSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.88, 2.88)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CreateSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j3v7b"]
+resource_name = "appear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CreateSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2.812, 2.812)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CreateSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bu2ky"]
+_data = {
+"RESET": SubResource("Animation_77ywx"),
+"appear": SubResource("Animation_j3v7b")
+}
+
+[node name="CloverMissile" type="Node2D"]
+scale = Vector2(0.839999, 0.839999)
+script = ExtResource("1_sv2qr")
+speed = 650.0
+steer_force = 350.0
+life_time = 7.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_w8hmj")
+
+[node name="CreateSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+scale = Vector2(2.88, 2.88)
+texture = ExtResource("2_w8hmj")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+script = ExtResource("3_fxhyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_nsxim")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+texture_filter = 1
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_yccgl")
+texture = SubResource("CompressedTexture2D_13ipf")
+one_shot = true
+explosiveness = 1.0
+
+[node name="FSM" type="Node2D" parent="." node_paths=PackedStringArray("current_state")]
+script = ExtResource("3_7hlci")
+current_state = NodePath("Appear")
+
+[node name="Appear" type="Node2D" parent="FSM"]
+script = ExtResource("4_v1uws")
+
+[node name="Attack" type="Node2D" parent="FSM"]
+script = ExtResource("5_qfiba")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bu2ky")
+}

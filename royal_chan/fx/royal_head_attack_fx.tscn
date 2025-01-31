@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0g53bt8rx3xd"]
+
+[ext_resource type="Script" path="res://royal_chan/scripts/royal_head_attack_fx.gd" id="1_0ex4x"]
+[ext_resource type="PackedScene" uid="uid://cr7hk02e1j6gp" path="res://royal_chan/spade_projectile.tscn" id="2_r8t2w"]
+[ext_resource type="Texture2D" uid="uid://cqgg1lg2o0wes" path="res://royal_chan/arts/Safe_card_heartRoyalChan.png" id="3_g7308"]
+[ext_resource type="Script" path="res://royal_chan/scripts/card_sprite.gd" id="4_soirn"]
+[ext_resource type="Texture2D" uid="uid://dxq1gikmwuwlx" path="res://royal_chan/arts/Queen_spade_cartas_RoyalChan.png" id="5_u33oe"]
+[ext_resource type="AudioStream" uid="uid://ctq7puhdcqk1i" path="res://royal_chan/SFXs/CardFlip.wav" id="6_8ahwo"]
+
+[node name="HeadAttackFX" type="Node2D" node_paths=PackedStringArray("positions", "cards")]
+script = ExtResource("1_0ex4x")
+positions = [NodePath("Markers/LeftMarker"), NodePath("Markers/CenterMarker"), NodePath("Markers/RightMarker")]
+cards = [NodePath("Cards/HeartCard"), NodePath("Cards/SpadeCard"), NodePath("Cards/SpadeCard2")]
+spade_scene = ExtResource("2_r8t2w")
+
+[node name="Cards" type="Node2D" parent="."]
+z_index = 1
+
+[node name="HeartCard" type="Sprite2D" parent="Cards"]
+modulate = Color(1, 1, 1, 0.262745)
+texture_filter = 1
+position = Vector2(1592, 544)
+texture = ExtResource("3_g7308")
+script = ExtResource("4_soirn")
+
+[node name="SpadeCard" type="Sprite2D" parent="Cards"]
+modulate = Color(1, 1, 1, 0.262745)
+texture_filter = 1
+position = Vector2(960, 544)
+texture = ExtResource("5_u33oe")
+script = ExtResource("4_soirn")
+
+[node name="SpadeCard2" type="Sprite2D" parent="Cards"]
+modulate = Color(1, 1, 1, 0.262745)
+texture_filter = 1
+position = Vector2(330, 544)
+texture = ExtResource("5_u33oe")
+script = ExtResource("4_soirn")
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="LeftMarker" type="Marker2D" parent="Markers"]
+position = Vector2(330, 544)
+
+[node name="CenterMarker" type="Marker2D" parent="Markers"]
+position = Vector2(960, 544)
+
+[node name="RightMarker" type="Marker2D" parent="Markers"]
+position = Vector2(1592, 544)
+
+[node name="SFXs" type="Node2D" parent="."]
+
+[node name="CardFlip" type="AudioStreamPlayer" parent="SFXs"]
+stream = ExtResource("6_8ahwo")
+max_polyphony = 3
+bus = &"SFX"

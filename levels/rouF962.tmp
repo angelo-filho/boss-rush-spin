@@ -1,0 +1,248 @@
+[gd_scene load_steps=30 format=3 uid="uid://c8i4wmp505iuw"]
+
+[ext_resource type="Script" path="res://common/scripts/player_test/player_test.gd" id="1_07a1a"]
+[ext_resource type="PackedScene" uid="uid://t462ol02sj2b" path="res://player/player.tscn" id="2_5y3bv"]
+[ext_resource type="Texture2D" uid="uid://cha1lq6my42vd" path="res://all_chipone/art/placeholder_sala.png" id="3_38bxr"]
+[ext_resource type="Shader" path="res://common/shaders/CTR.gdshader" id="4_l5pmr"]
+[ext_resource type="Shader" path="res://common/shaders/circle_fade.gdshader" id="5_0x51n"]
+[ext_resource type="AudioStream" uid="uid://b0g1geq4sfsml" path="res://common/shaders/Drop Point.mp3" id="6_g5p33"]
+[ext_resource type="Texture2D" uid="uid://cy03skdjgem7s" path="res://common/art/background.png" id="7_lodpr"]
+[ext_resource type="PackedScene" uid="uid://dw3778j8p8khm" path="res://wheel/wheel.tscn" id="9_efcre"]
+[ext_resource type="Script" path="res://wheel/wheel_controller.gd" id="9_iuol4"]
+[ext_resource type="Script" path="res://wheel/wheel_piece.gd" id="10_gv0nj"]
+[ext_resource type="Resource" uid="uid://cd51mj4o87fnx" path="res://common/data/chipone_left_arm.tres" id="11_u73e5"]
+[ext_resource type="Resource" uid="uid://dm2uw67cvdvec" path="res://common/data/royal_left_arm.tres" id="12_1d37o"]
+[ext_resource type="Resource" uid="uid://driterxd8nc7x" path="res://common/data/chipone_head.tres" id="13_a7sut"]
+[ext_resource type="Resource" uid="uid://bojoqa4lw1dre" path="res://common/data/royal_head_arm.tres" id="14_pvjy8"]
+[ext_resource type="Resource" uid="uid://cj3vo1o5xhl6x" path="res://common/data/chipone_right_arm.tres" id="15_2p7ut"]
+[ext_resource type="Resource" uid="uid://ynkcnl0gbcxa" path="res://common/data/royal_right_arm.tres" id="16_fsl2d"]
+[ext_resource type="Texture2D" uid="uid://b0jvj7sa2lxl3" path="res://jackpot/jackpot_todinho.png" id="17_04gg1"]
+[ext_resource type="PackedScene" uid="uid://bfaxr7fpoeug3" path="res://boss/boss.tscn" id="17_cu4we"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0josx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnmae"]
+size = Vector2(286, 20)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yrdai"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w114c"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26j2x"]
+shader = ExtResource("4_l5pmr")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.016
+shader_parameter/aberration = 0.00100005
+shader_parameter/brightness = 1.0
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.121
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.43
+shader_parameter/vignette_opacity = 0.449
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eyk4x"]
+shader = ExtResource("5_0x51n")
+shader_parameter/circle_size = 1.1
+shader_parameter/feather = 0.05
+shader_parameter/circle_position = Vector2(0.48, 0.43)
+shader_parameter/screen_width = 1920.0
+shader_parameter/screen_height = 1080.0
+
+[sub_resource type="Animation" id="Animation_ou4ur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.1]
+}
+
+[sub_resource type="Animation" id="Animation_4dlqi"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.9, 1.2, 1.43333),
+"transitions": PackedFloat32Array(1, -2, 1, 1, 1),
+"update": 0,
+"values": [1.1, 0.19, 0.19, 0.355, -0.055]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o2wld"]
+_data = {
+"RESET": SubResource("Animation_ou4ur"),
+"fade_out": SubResource("Animation_4dlqi")
+}
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_alvox"]
+stream_count = 1
+stream_0 = ExtResource("6_g5p33")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il13d"]
+atlas = ExtResource("17_04gg1")
+region = Rect2(0, 0, 1920, 1080)
+
+[node name="Round1" type="Node2D"]
+position = Vector2(-3, 0)
+script = ExtResource("1_07a1a")
+
+[node name="Player" parent="." instance=ExtResource("2_5y3bv")]
+position = Vector2(930, 448)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 850)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape2D_0josx")
+
+[node name="IdeiaSala" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("3_38bxr")
+centered = false
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(303, 572)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(150, 14.5)
+shape = SubResource("RectangleShape2D_pnmae")
+one_way_collision = true
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(1321, 572)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(150, 14.5)
+shape = SubResource("RectangleShape2D_pnmae")
+one_way_collision = true
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(92, 774)
+shape = SubResource("WorldBoundaryShape2D_yrdai")
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1829, 774)
+shape = SubResource("WorldBoundaryShape2D_w114c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CTR" type="ColorRect" parent="CanvasLayer/Control"]
+z_index = 15
+material = SubResource("ShaderMaterial_26j2x")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.997673, 1)
+
+[node name="Control2" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Circle" type="ColorRect" parent="CanvasLayer/Control2"]
+z_index = 15
+material = SubResource("ShaderMaterial_eyk4x")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.997673, 1)
+color = Color(0.00464652, 0.0518423, 0.0464854, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control2/Circle"]
+libraries = {
+"": SubResource("AnimationLibrary_o2wld")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_alvox")
+volume_db = -2.405
+autoplay = true
+bus = &"Music"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("7_lodpr")
+centered = false
+
+[node name="WheelController" type="Node2D" parent="."]
+script = ExtResource("9_iuol4")
+
+[node name="JackpotRoullet" type="Sprite2D" parent="WheelController"]
+texture = SubResource("AtlasTexture_il13d")
+centered = false
+
+[node name="LeftArmWheel" parent="WheelController" instance=ExtResource("9_efcre")]
+offset_left = 12.0
+offset_top = 151.0
+offset_right = 12.0
+offset_bottom = 151.0
+rotation = 0.0959931
+scale = Vector2(0.38, 0.38)
+pieces = Array[ExtResource("10_gv0nj")]([ExtResource("11_u73e5"), ExtResource("12_1d37o")])
+
+[node name="HeadWheel" parent="WheelController" instance=ExtResource("9_efcre")]
+offset_left = 588.0
+offset_top = -71.0
+offset_right = 588.0
+offset_bottom = -71.0
+scale = Vector2(0.585, 0.585)
+pieces = Array[ExtResource("10_gv0nj")]([ExtResource("13_a7sut"), ExtResource("14_pvjy8")])
+
+[node name="RightArmWheel" parent="WheelController" instance=ExtResource("9_efcre")]
+offset_left = 1178.0
+offset_top = 148.0
+offset_right = 1178.0
+offset_bottom = 148.0
+rotation = -0.190241
+scale = Vector2(0.38, 0.38)
+pieces = Array[ExtResource("10_gv0nj")]([ExtResource("15_2p7ut"), ExtResource("16_fsl2d")])
+
+[node name="BossBase" parent="." instance=ExtResource("17_cu4we")]

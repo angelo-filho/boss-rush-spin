@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxpxw5qirwc1p"]
+
+[ext_resource type="Script" path="res://common/scripts/chip_attack_fx.gd" id="1_1wayy"]
+[ext_resource type="PackedScene" uid="uid://byjv5ycc1w27g" path="res://all_chipone/scripts/chip_projectile.tscn" id="2_7vl0r"]
+
+[node name="ArmLeftAttackFX" type="Node2D"]
+script = ExtResource("1_1wayy")
+chip_projectile_scene = ExtResource("2_7vl0r")
+max_time = 0.1
+
+[node name="InitialMarker" type="Marker2D" parent="."]
+
+[node name="FinalMarker" type="Marker2D" parent="."]
+position = Vector2(1920, 0)
