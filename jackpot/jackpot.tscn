@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cwr8cysdmrxet"]
+[gd_scene load_steps=39 format=3 uid="uid://cwr8cysdmrxet"]
 
 [ext_resource type="Script" path="res://jackpot/jackpot.gd" id="1_pda4h"]
 [ext_resource type="Script" path="res://boss/script/boss_fsm.gd" id="6_dafy3"]
@@ -10,8 +10,8 @@
 [ext_resource type="Script" path="res://boss/script/boss_blink_controller.gd" id="11_kdpa7"]
 [ext_resource type="Texture2D" uid="uid://dpvn8rnshrfi2" path="res://player/Angry_Smoke_Circle_Burst_White_v1_A_spritesheet.png" id="12_q4ffa"]
 [ext_resource type="Script" path="res://boss/script/warning_controller.gd" id="13_f4xwd"]
-[ext_resource type="Texture2D" uid="uid://dl6olxyi3bt32" path="res://exclamation_spritesheet2.png" id="14_8k1nu"]
 [ext_resource type="Texture2D" uid="uid://b0jvj7sa2lxl3" path="res://jackpot/jackpot_todinho.png" id="15_xgibe"]
+[ext_resource type="Texture2D" uid="uid://c4eklxdll8hjh" path="res://common/art/2_exlamation.webp" id="20_8ers0"]
 [ext_resource type="PackedScene" uid="uid://dw3778j8p8khm" path="res://wheel/wheel.tscn" id="20_swn4v"]
 [ext_resource type="Script" path="res://wheel/wheel_piece.gd" id="21_yafcv"]
 [ext_resource type="Resource" uid="uid://cd51mj4o87fnx" path="res://common/data/chipone_left_arm.tres" id="22_rotgx"]
@@ -326,10 +326,6 @@ gravity = Vector3(0, 0, 0)
 anim_speed_min = 1.0
 anim_speed_max = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h0on6"]
-atlas = ExtResource("14_8k1nu")
-region = Rect2(0, 200, 150, 200)
-
 [node name="Jackpot" type="Node2D"]
 script = ExtResource("1_pda4h")
 metadata/_edit_vertical_guides_ = [986.0]
@@ -485,7 +481,7 @@ script = ExtResource("13_f4xwd")
 
 [node name="Warning" type="Sprite2D" parent="WarningController"]
 position = Vector2(1601, 387)
-texture = SubResource("AtlasTexture_h0on6")
+texture = ExtResource("20_8ers0")
 
 [node name="Points" type="Node2D" parent="WarningController"]
 
