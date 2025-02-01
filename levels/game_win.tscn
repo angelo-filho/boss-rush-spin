@@ -1,14 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://mb0yfckducaw"]
+[gd_scene load_steps=5 format=3 uid="uid://co22iq0kxkgpd"]
 
-[ext_resource type="Script" path="res://common/scripts/game_over.gd" id="1_xn8mh"]
-[ext_resource type="Texture2D" uid="uid://bfd5g3uuha7gw" path="res://intro Images/game_over_screen.png" id="2_34oc8"]
-[ext_resource type="FontFile" uid="uid://c4a2tpdbv1u67" path="res://common/fonts/Cardigan Titling Rg.otf" id="2_rthcd"]
+[ext_resource type="Script" path="res://common/scripts/game_over.gd" id="1_7d6fm"]
+[ext_resource type="FontFile" uid="uid://c4a2tpdbv1u67" path="res://common/fonts/Cardigan Titling Rg.otf" id="2_3p8rv"]
+[ext_resource type="Texture2D" uid="uid://otgayp7f3c7r" path="res://intro Images/tela vitoria.png" id="2_c0v0w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkx70"]
 bg_color = Color(0.04, 0.04, 0.04, 1)
 
 [node name="GameOver" type="CanvasLayer"]
-script = ExtResource("1_xn8mh")
+script = ExtResource("1_7d6fm")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -34,9 +34,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -0.5
+offset_bottom = -0.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_34oc8")
+texture = ExtResource("2_c0v0w")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
 layout_mode = 1
@@ -45,17 +47,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 140.0
-offset_top = -340.0
-offset_right = 827.0
-offset_bottom = -91.0
+offset_left = -858.0
+offset_top = -330.0
+offset_right = -171.0
+offset_bottom = -85.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 44
 
 [node name="Title" type="Label" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_rthcd")
+theme_override_fonts/font = ExtResource("2_3p8rv")
 theme_override_font_sizes/font_size = 64
 text = "Wheel Of Misfortune"
 horizontal_alignment = 1
@@ -68,13 +70,13 @@ theme_override_constants/separation = 16
 custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
 theme_override_constants/outline_size = 0
-theme_override_fonts/font = ExtResource("2_rthcd")
+theme_override_fonts/font = ExtResource("2_3p8rv")
 theme_override_font_sizes/font_size = 32
 text = "PLAY"
 
 [node name="QuitButton" type="Button" parent="Control/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_rthcd")
+theme_override_fonts/font = ExtResource("2_3p8rv")
 theme_override_font_sizes/font_size = 32
 text = "Quit"
 
