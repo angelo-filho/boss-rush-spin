@@ -1,8 +1,16 @@
 extends Control
 
+func _ready() -> void:
+	$VBoxContainer/PlayButton.grab_focus()
+
 func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://levels/dialogue_scene.tscn")
-	pass
+	$VBoxContainer/PlayButton.release_focus()
+	
+	$AnimationPlayer.play("start")
+	
+	await $AnimationPlayer.animation_finished
+	
+	$Cutscene.play()
 
 
 func _on_options_button_pressed() -> void:

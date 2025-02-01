@@ -19,7 +19,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("advance_dialog") and running:
+	if event.is_action_pressed("ui_accept") and running:
 		if typing:
 			visible_characters = -1
 			typing = false
@@ -49,6 +49,6 @@ func _on_type_timeout():
 	if visible_characters < text.length():
 		visible_characters += 1
 	
-	if visible_characters == text.length():
+	if visible_characters == text.length() - 1:
 		timer.stop()
 		typing = false

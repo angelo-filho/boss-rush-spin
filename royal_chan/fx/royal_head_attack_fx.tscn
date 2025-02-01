@@ -12,6 +12,7 @@ script = ExtResource("1_0ex4x")
 positions = [NodePath("Markers/LeftMarker"), NodePath("Markers/CenterMarker"), NodePath("Markers/RightMarker")]
 cards = [NodePath("Cards/HeartCard"), NodePath("Cards/SpadeCard"), NodePath("Cards/SpadeCard2")]
 spade_scene = ExtResource("2_r8t2w")
+wait_time = 2.0
 
 [node name="Cards" type="Node2D" parent="."]
 z_index = 1

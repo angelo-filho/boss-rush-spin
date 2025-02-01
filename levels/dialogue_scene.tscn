@@ -225,7 +225,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_iakh7")
 script = ExtResource("5_c4cpp")
-images = Array[Texture2D]([ExtResource("4_iakh7"), ExtResource("5_3qywr"), ExtResource("6_n7ptk"), ExtResource("7_hakpl"), ExtResource("8_mwcbe")])
+images = Array[Texture2D]([ExtResource("5_3qywr"), ExtResource("6_n7ptk"), ExtResource("7_hakpl"), ExtResource("8_mwcbe")])
 
 [node name="Scene7" type="TextureRect" parent="."]
 visible = false

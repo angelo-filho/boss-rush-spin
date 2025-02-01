@@ -11,7 +11,7 @@ var running := false
 
 
 func _input(event):
-	if event.is_action_pressed("advance_dialog") and running:
+	if event.is_action_pressed("ui_accept") and running:
 		if showing_images:
 			advance_image()
 

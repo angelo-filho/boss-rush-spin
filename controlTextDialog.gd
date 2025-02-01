@@ -1,3 +1,4 @@
+class_name StartCutscene
 extends Control
 
 @onready var image_passer: ImagePasser = $ImagePasser
@@ -6,7 +7,7 @@ extends Control
 @onready var curtains: AnimatedSprite2D = $Curtains
 @onready var curtains_dialogue: DialogueText = $CurtainsDialogue
 
-func _ready() -> void:
+func play() -> void:
 	image_passer.show_image()
 	
 	image_passer.passer_finished.connect(_on_passer_finished)
