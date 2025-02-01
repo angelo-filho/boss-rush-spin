@@ -41,8 +41,16 @@ func _on_right_wheel_spin_end(piece: WheelPiece):
 func _on_head_wheel_spin_end(piece: WheelPiece):
 	boss_data.head = piece
 	
-	await get_tree().create_timer(2.0).timeout
+	var curtains = $"../CurtainsLayer/Curtains" as AnimatedSprite2D
+	
+	curtains.play("close")
+	
+	await curtains.animation_finished	
+	
+	hide_wheels()
 	
 	boss.setup(boss_data)
 	
-	hide_wheels()
+	await get_tree().create_timer(0.2).timeout
+	
+	curtains.play("open")

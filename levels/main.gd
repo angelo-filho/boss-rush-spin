@@ -3,6 +3,12 @@ extends Node2D
 @export var pause_menu: Control
 
 var paused = false
+
+
+func _ready() -> void:
+	$CurtainsLayer/Curtains.play("open")
+
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()

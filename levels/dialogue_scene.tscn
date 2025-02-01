@@ -1,9 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3c75wp3h8d5w"]
+[gd_scene load_steps=32 format=3 uid="uid://cqc41xy1rro0j"]
 
 [ext_resource type="Script" path="res://controlTextDialog.gd" id="1_tjt0b"]
 [ext_resource type="FontFile" uid="uid://c4a2tpdbv1u67" path="res://common/fonts/Cardigan Titling Rg.otf" id="2_ruj5p"]
 [ext_resource type="Shader" path="res://common/shaders/CTR.gdshader" id="3_74vdq"]
-[ext_resource type="Texture2D" uid="uid://byfjxphjoi4su" path="res://intro Images/first_screen.png" id="4_hasji"]
+[ext_resource type="Script" path="res://common/scripts/dialogue_text.gd" id="3_vsht6"]
+[ext_resource type="Texture2D" uid="uid://byfjxphjoi4su" path="res://intro_images/first_screen.png" id="4_iakh7"]
+[ext_resource type="Texture2D" uid="uid://domkqphb533tu" path="res://intro_images/intro_screen_2.png" id="5_3qywr"]
+[ext_resource type="Texture2D" uid="uid://bescgyne32s8k" path="res://common/art/curtain_no_back.png" id="5_c0n6l"]
+[ext_resource type="Script" path="res://common/scripts/image_passer.gd" id="5_c4cpp"]
+[ext_resource type="Texture2D" uid="uid://c8lxlpo2217it" path="res://intro_images/intro_screen_3.png" id="6_n7ptk"]
+[ext_resource type="Texture2D" uid="uid://by1gkhljanpce" path="res://intro_images/intro_screen_4_melhor.png" id="7_hakpl"]
+[ext_resource type="Texture2D" uid="uid://mjjuvpxrorgk" path="res://intro_images/intro_screen_5.png" id="8_mwcbe"]
+[ext_resource type="Texture2D" uid="uid://b3thiv143p8qv" path="res://intro_images/intro_screen_7.png" id="9_u0l5a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xnues"]
 shader = ExtResource("3_74vdq")
@@ -29,35 +37,236 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.12
 shader_parameter/vignette_opacity = 0.5
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3df6i"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn60i"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwaxt"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c1w0"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apj1r"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(1920, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydix6"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(3840, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek5d5"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32eu2"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(1920, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crxbt"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(1920, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bds4e"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuf5l"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(3840, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6undp"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(1920, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4xy3"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvvnl"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g5qm"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13e3l"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnqt6"]
+atlas = ExtResource("5_c0n6l")
+region = Rect2(3840, 2160, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l8ddx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3df6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn60i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwaxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c1w0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apj1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydix6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek5d5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32eu2")
+}],
+"loop": false,
+"name": &"close",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crxbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bds4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuf5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6undp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4xy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvvnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g5qm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13e3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnqt6")
+}],
+"loop": false,
+"name": &"open",
+"speed": 7.0
+}]
+
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_tjt0b")
 
-[node name="TextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 59.0
-offset_top = 121.0
-offset_right = 1892.0
-offset_bottom = 931.0
+[node name="DialogueText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -740.5
+offset_top = -96.0
+offset_right = 740.5
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/default_color = Color(1, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_ruj5p")
 theme_override_font_sizes/normal_font_size = 150
 bbcode_enabled = true
-text = "Text"
+text = "text"
+fit_content = true
+scroll_active = false
+visible_characters_behavior = 1
+script = ExtResource("3_vsht6")
+texts = Array[String](["[center]Aren’t you tired of [shake rate=40.0 level=10 connected=1]losing?[/shake]", "[center]How about a game?", "[center]You have nothing left to lose…"])
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="DialogueText"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_xnues")
-layout_mode = 0
-offset_right = 1938.0
-offset_bottom = 1087.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="ImageTexture" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1935.0
-offset_bottom = 1088.0
-texture = ExtResource("4_hasji")
+[node name="ImagePasser" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_iakh7")
+script = ExtResource("5_c4cpp")
+images = Array[Texture2D]([ExtResource("4_iakh7"), ExtResource("5_3qywr"), ExtResource("6_n7ptk"), ExtResource("7_hakpl"), ExtResource("8_mwcbe")])
+
+[node name="Scene7" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_u0l5a")
+script = ExtResource("5_c4cpp")
+images = Array[Texture2D]([ExtResource("9_u0l5a")])
+
+[node name="Curtains" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l8ddx")
+animation = &"close"
+centered = false
+
+[node name="CurtainsDialogue" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -740.5
+offset_top = -96.0
+offset_right = 740.5
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.86, 0.733867, 0.172, 1)
+theme_override_fonts/normal_font = ExtResource("2_ruj5p")
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "[center]text"
+fit_content = true
+scroll_active = false
+visible_characters_behavior = 1
+script = ExtResource("3_vsht6")
+texts = Array[String](["[center]The rules are [shake]simple", "[center][shake ]Your luck against mine", "Go on, give it a try"])
+
+[node name="Timer" type="Timer" parent="CurtainsDialogue"]
