@@ -9,10 +9,16 @@ func _ready() -> void:
 
 
 func _on_boss_died():
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	
 	animation_player.play("fade_out")
 	
-	await animation_player.animation_finished
+	await get_tree().create_timer(0.95).timeout
+	
+	var curtains = $"../CurtainsLayer/Curtains" as AnimatedSprite2D
+	
+	curtains.play("close")
+	
+	await curtains.animation_finished
 	
 	get_tree().change_scene_to_file(scene_to_go)

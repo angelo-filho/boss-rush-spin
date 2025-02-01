@@ -19,7 +19,7 @@ var last_direction: float = 1.0
 
 func _ready() -> void:
 	health_component.damage_received.connect(_on_damage_received)
-	health_component.died.connect(func(): get_tree().change_scene_to_file.call_deferred(("res://levels/game_over.tscn")))
+	health_component.died.connect(_on_died)
 	EventBus.boss_died.connect(func(): health_component.is_invecible = true)
 
 func _input(event: InputEvent) -> void:
@@ -66,3 +66,11 @@ func _on_damage_received():
 	Camera.shake(5.0, 0.4)
 	animation_controller.play_blink()
 	$SFXs/Damage.play()
+
+
+func _on_died():
+	$FSM.change_state($FSM/Death)
+	
+	await get_tree().create_timer(1.0).timeout
+	
+	get_tree().change_scene_to_file("res://levels/game_over.tscn")

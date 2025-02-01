@@ -32,6 +32,10 @@ func play_dash():
 	animation_player.play("dash")
 
 
+func play_death():
+	animation_player.play("death")
+
+
 func play_blink():
 	if tween:
 		tween.kill()
