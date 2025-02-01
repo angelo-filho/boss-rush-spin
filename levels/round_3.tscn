@@ -233,6 +233,6 @@ position = Vector2(1829, 774)
 shape = SubResource("WorldBoundaryShape2D_w114c")
 
 [node name="RoundFinished" parent="." instance=ExtResource("13_hog1x")]
-scene_to_go = "res://levels/win_screen.tscn"
+scene_to_go = "res://levels/game_win.tscn"
 
 [node name="Jackpot" parent="." instance=ExtResource("14_c7wht")]
